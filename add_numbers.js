@@ -28,7 +28,7 @@ function add() {
 		break;
 	}
 
-	var mpr = document.getElementById('cfm').value;
+	var cfm = document.getElementById('cfm').value;
 	var cfmResult;
 	switch(cfm) {
 	  case "25":
