@@ -1,10 +1,10 @@
 "use strict";
 
 function add() {
-    var x = Number(document.getElementById('length').value);
-    var y = Number(document.getElementById('width').value);
+    var length = Number(document.getElementById('length').value);
+    var width = Number(document.getElementById('width').value);
 
-    document.getElementById('result').innerHTML = x+y;
+    document.getElementById('result').innerHTML = length+width;
     return false;
 }
 
