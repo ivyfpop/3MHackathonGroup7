@@ -44,7 +44,7 @@
             display: block;
             width: 100%;
             border: 10px;
-            background-color: #E2E729;
+            background-color: #ECD84A;
             padding: 14px 28px;
             font-size: 16px;
             cursor: pointer;
@@ -53,7 +53,7 @@
 
           .bigbutton:active {
             background-color: #C9CD16;
-            box-shadow: 0 3px rgb(100, 105, 27);
+            box-shadow: 0 3px rgb(223, 202, 20);
             transform: translateY(4px);
           }
 
@@ -66,9 +66,18 @@
         <h2>Pressure Drop Calculator</h2>
       </div>
       <ul class="list-inline">
-        <li class="list-inline-item"><a href="https://www.filtrete.com/3M/en_US/filtrete/?utm_medium=redirect&utm_source=vanity-url&utm_campaign=www.filtrete.com/"> <button class="btn btn-primary btn-lg btn-block" type="submit">Home</button></a></li>
-        <li class="list-inline-item"><a href="https://www.filtrete.com/3M/en_US/filtrete/lets-clear-the-air/"> <button class="btn btn-primary btn-lg btn-block" type="submit">About Us</button></a></li>
-        <li class="list-inline-item"><a href="https://www.filtrete.com/3M/en_US/filtrete/products/smart-filter-technology/"> <button class="btn btn-primary btn-lg btn-block" type="submit">Products</button></a></li>
+        <li class="list-inline-item">
+          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/?utm_medium=redirect&utm_source=vanity-url&utm_campaign=www.filtrete.com/"> 
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Home</button>
+          </a></p></li>
+        <li class="list-inline-item">
+          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/lets-clear-the-air/"> 
+            <button class="btn btn-primary btn-lg btn-block" type="submit">About Us</button>
+          </a></p></li>
+        <li class="list-inline-item">
+          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/products/smart-filter-technology/"> 
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Products</button>
+          </a></p></li>
       </ul>
 
       <div class="mb-3">
@@ -107,7 +116,7 @@
       </select>
       </div>
 
-      <button type="button" class="bigbutton" onclick="calculate()"><b>Calculate!</b></button>
+      <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button>
 
       <p id="display"></p>
       <div id="hide">
