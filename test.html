@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p>Length: <input type="text" id="length"></input></p>
+        <p>Width: <input type="text" id="width"></input></p>
+        <p>MPR: <input type="text" id="mpr"></input></p>
+        <input type="button" id="submit" onclick="calculate()"></input>
+        <p id="answer"></p>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>
+            function calculate() {
+                var length = $('#length').val();
+                var width = $('#width').val();
+                var mpr = $('#mpr').val();
+                var calculation = 0;
+                $('#answer').text("Length: " + length + "<br>Width: " + width + "<br>MPR: " + mpr);
+            }
+        </script>
+    </body>
+</html>
