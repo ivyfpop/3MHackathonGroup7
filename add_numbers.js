@@ -48,7 +48,8 @@ function add() {
 		break;
 	}
 
-    document.getElementById('result').innerHTML = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
+	var result = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
+    document.getElementById('result').innerHTML = result.toFixed(2);
     return false;
 }
 
