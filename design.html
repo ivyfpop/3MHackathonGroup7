@@ -111,11 +111,11 @@
 
       <p id="display"></p>
       <div id="hide">
-          <p id="1280"></p>
-          <p id="1920"></p>
-          <p id="2560"></p>
-          <p id="3200"></p>
-          <p id="4340"></p>
+          <p id="a"></p>
+          <p id="b"></p>
+          <p id="c"></p>
+          <p id="d"></p>
+          <p id="e"></p>
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -235,39 +235,45 @@
                   unknown = .11;
                   break;
           }
-          var formula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * unknown;
+          var valueFormula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * unknown;
+          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
 
           //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
-          var calc1280 = 0.39 * formula;
-          calc1280 = Math.ceil(calc1280 * 100) / 100;
+          var calcA = 0.39 * valueFormula;
+          calcA = Math.ceil(calcA * 100) / 100;
+          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(0.68*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9, 2)
-          var calc1920 = 0.68 * formula;
-          calc1920 = Math.ceil(calc1920 * 100) / 100;
+          var calcB = 0.68 * valueFormula;
+          calcB = Math.ceil(calcB * 100) / 100;
+          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
 
           //=ROUND(0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calc2560 = formula;
-          calc2560 = Math.round(calc2560 * 100) / 100;
+          var calcC = valueFormula;
+          calcC = Math.round(calcC * 100) / 100;
+          var cfmC = cfmFormula;
 
           //=ROUNDUP(1.4*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calc3200 = 1.4 * formula;
-          calc3200 = Math.ceil(calc3200 * 100) / 100;
+          var calcD = 1.4 * valueFormula;
+          calcD = Math.ceil(calcD * 100) / 100;
+          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(2.11*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calc4340 = 2.11 * formula;
-          calc4340 = Math.ceil(calc4340 * 100) / 100;
+          var calcE = 2.11 * valueFormula;
+          calcE = Math.ceil(calcE * 100) / 100;
+          var cfmE = Math.round(1.5 * cfmFormula / 5) * 5;
 
           $('#display').text("Length: " + length + "\nWidth: " + width + "\nMPR: " + mpr + " Unknown: " + unknown);
-          $('#1280').text("CFM 1280: " + calc1280);
-          cfmColor('1280', calc1280);
-          $('#1920').text("CFM 1920: " + calc1920);
-          cfmColor('1920', calc1920);
-          $('#2560').text("CFM 2560: " + calc2560);
-          cfmColor('2560', calc2560);
-          $('#3200').text("CFM 3200: " + calc3200);
-          cfmColor('3200', calc3200);
-          $('#4340').text("CFM 4340: " + calc4340);
-          cfmColor('4340', calc4340);
+          $('#a').text("CFM " + cfmA + ": " + calcA);
+          cfmColor('a', calcA);
+          $('#b').text("CFM " + cfmB + ": " + calcB);
+          cfmColor('b', calcB);
+          $('#c').text("CFM " + cfmC + ": " + calcC);
+          cfmColor('c', calcC);
+          $('#d').text("CFM " + cfmD + ": " + calcD);
+          cfmColor('d', calcD);
+          $('#e').text("CFM " + cfmE + ": " + calcE);
+          cfmColor('e', calcE);
           $('#hide').show();
       }
 
