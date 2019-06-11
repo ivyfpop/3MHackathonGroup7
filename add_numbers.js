@@ -4,9 +4,9 @@ function add() {
 	var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
 	
+	/*
 	var mpr = document.getElementById('mpr').value;
 	var mprResult;
-	
 	// Determine the correct mpr Result number
 	switch(mpr) {
 	  case "2800":
@@ -28,7 +28,7 @@ function add() {
 	  	var mprResult = .23;
 		break;
 	}
-	var mprResult = 1;
+	var mprResult = 1;*/
 
     //document.getElementById('result').innerHTML =.39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     document.getElementById('result').innerHTML = length+width;
