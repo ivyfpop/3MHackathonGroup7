@@ -1,8 +1,8 @@
 "use strict";
 
 function add() {
-    var x = Number(document.getElementById('x').value);
-    var y = Number(document.getElementById('y').value);
+    var x = Number(document.getElementById('length').value);
+    var y = Number(document.getElementById('width').value);
 
     document.getElementById('result').innerHTML = x+y;
     return false;
