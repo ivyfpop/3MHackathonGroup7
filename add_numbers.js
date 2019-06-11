@@ -4,7 +4,8 @@ function add() {
     var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
 
-	var mpr = document.getElementById('mpr').value;
+	var mprResult = Number(document.getElementById('mpr').value);
+	/*
 	var mprResult;
 	// Determine the correct mpr Result number
 	switch(mpr) {
@@ -26,7 +27,7 @@ function add() {
 	  case "1200 Carbon":
 	  	var mprResult = .23;
 		break;
-	}
+	}*/
 
 	var cfm = document.getElementById('cfm').value;
 	var cfmResult;
