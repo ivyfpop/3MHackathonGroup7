@@ -16,8 +16,14 @@
 		<form>
 
 			
-			<input id="length">
-			<input id="width">
+			<div class="form-group">
+				<input id="length">
+			</div>
+			
+			<div class="form-group">
+				<input id="width">
+			</div>
+
 			<div class="form-group">
 				<label for="mpr">MPR</label>
 			    <select class="form-control" id="mpr">
@@ -28,10 +34,13 @@
 				  <option>1500</option>
 				</select>
 			</div>
-			<input id="cfm">
 
-			<button id="go"> Calculate Pressure Drop </button>
+			<div class="form-group">
+				<input id="cfm">
+			</div>
 		</form>
+		
+		<button id="go"> Calculate Pressure Drop </button>
 
 		<div id="result"></div>
 
