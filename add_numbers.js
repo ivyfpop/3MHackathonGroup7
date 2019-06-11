@@ -4,7 +4,8 @@ function add() {
     var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
 
-    document.getElementById('result').innerHTML = length+width;
+    //document.getElementById('result').innerHTML = length+width;
+    document.getElementById('result').innerHTML = .39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width));
     return false;
 }
 
