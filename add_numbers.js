@@ -6,28 +6,7 @@ function add() {
 	var mprResult = Number(document.getElementById('mpr').value);
 	var cfmResult = Number(document.getElementById('cfm').value);
 
-/*
-	var cfm = document.getElementById('cfm').value;
-	var cfmResult;
-	switch(cfm) {
-	  case "25":
-	  	var cfmResult = .39;
-		break;
-	  case "40":
-	  	var cfmResult = .68;
-		break;
-	  case "50":
-	  	var cfmResult = 1;
-		break;
-	  case "65":
-	  	var cfmResult = 1.4;
-		break;
-	  case "85":
-	  	var cfmResult = 2.11;
-		break;
-	}
-*/
-	var result = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
+	var result = cfmResult*0.818/(1-2.125(length+width-2.125)/(length*width))*mprResult;
     document.getElementById('result').innerHTML = result.toFixed(2);
     return false;
 }
