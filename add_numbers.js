@@ -3,32 +3,10 @@
 function add() {
     var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
-
 	var mprResult = Number(document.getElementById('mpr').value);
-	/*
-	var mprResult;
-	// Determine the correct mpr Result number
-	switch(mpr) {
-	  case "2800":
-	  	var mprResult = .25;
-		break;
-	  case "2400/2500":
-	  	var mprResult = .23;
-		break;
-	  case "2200":
-	  	var mprResult = .23;
-		break;
-	  case "1900":
-	  	var mprResult = .23;
-		break;
-	  case "1500":
-	  	var mprResult = .23;
-		break;
-	  case "1200 Carbon":
-	  	var mprResult = .23;
-		break;
-	}*/
+	var cfmResult = Number(document.getElementById('cfm').value);
 
+/*
 	var cfm = document.getElementById('cfm').value;
 	var cfmResult;
 	switch(cfm) {
@@ -48,7 +26,7 @@ function add() {
 	  	var cfmResult = 2.11;
 		break;
 	}
-
+*/
 	var result = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     document.getElementById('result').innerHTML = result.toFixed(2);
     return false;
