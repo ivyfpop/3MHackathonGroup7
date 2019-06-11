@@ -13,13 +13,25 @@
 	</head>
 
 	<body class="bg-light">
-	
-		<input id="length">
-		<input id="width">
-		<input id="mpr">
-		<input id="cfm">
+		<form>
 
-		<button id="go">Calculate Pressure Drop</button>
+			
+			<input id="length">
+			<input id="width">
+			<div class="form-group">
+				<label for="mpr">MPR</label>
+			    <select class="form-control" id="mpr">
+				  <option>2800</option>
+				  <option>2400/2500</option>
+				  <option>2200</option>
+				  <option>1900</option>
+				  <option>1500</option>
+				</select>
+			</div>
+			<input id="cfm">
+
+			<button id="go"> Calculate Pressure Drop </button>
+		</form>
 
 		<div id="result"></div>
 
