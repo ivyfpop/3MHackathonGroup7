@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <title>Test inputs</title>
     </head>
     <body>
         <p>Length: <input type="text" id="length"></input></p>
         <p>Width: <input type="text" id="width"></input></p>
         <p>MPR: <input type="text" id="mpr"></input></p>
-        <input type="button" id="submit" onclick="calculate()"></input>
+        <input type="button" id="submit" onclick="calculate()" value="Submit"></input>
+        <p id="display"></p>
         <p id="answer"></p>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script>
@@ -15,8 +16,13 @@
                 var length = $('#length').val();
                 var width = $('#width').val();
                 var mpr = $('#mpr').val();
-                var calculation = 0;
-                $('#answer').text("Length: " + length + "<br>Width: " + width + "<br>MPR: " + mpr);
+                var unknown = 0.00;
+                if (mpr == '2800') {
+                    unknown = .25;
+                }
+                var calculation = 0.39 * 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * unknown;
+                $('#display').text("Length: " + length + "\nWidth: " + width + "\nMPR: " + mpr + " Unknown: " + unknown);
+                $('#answer').text(calculation);
             }
         </script>
     </body>
