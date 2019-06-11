@@ -28,9 +28,27 @@ function add() {
 		break;
 	}
 
+	var mpr = document.getElementById('cfm').value;
+	var cfmResult;
+	switch(cfm) {
+	  case "25":
+	  	var cfmResult = .39;
+		break;
+	  case "40":
+	  	var cfmResult = .68;
+		break;
+	  case "50":
+	  	var cfmResult = 1;
+		break;
+	  case "65":
+	  	var cfmResult = 1.4;
+		break;
+	  case "85":
+	  	var cfmResult = 2.11;
+		break;
+	}
 
-    //document.getElementById('result').innerHTML = length+width;
-    document.getElementById('result').innerHTML = .39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
+    document.getElementById('result').innerHTML = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     return false;
 }
 
