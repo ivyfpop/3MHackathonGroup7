@@ -1,10 +1,22 @@
 "use strict";
 
 function add() {
+    var x = Number(document.getElementById('x').value);
+    var y = Number(document.getElementById('y').value);
+
+    document.getElementById('result').innerHTML = x+y;
+    return false;
+}
+
+document.getElementById('go').addEventListener('click', add);
+/*
+"use strict";
+
+function add() {
 	var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
 	
-	/*
+	
 	var mpr = document.getElementById('mpr').value;
 	var mprResult;
 	// Determine the correct mpr Result number
@@ -28,7 +40,7 @@ function add() {
 	  	var mprResult = .23;
 		break;
 	}
-	var mprResult = 1;*/
+	var mprResult = 1;
 
     //document.getElementById('result').innerHTML =.39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     document.getElementById('result').innerHTML = length+width;
@@ -36,3 +48,4 @@ function add() {
 }
 
 document.getElementById('go').addEventListener('click', add);
+*/
