@@ -28,7 +28,7 @@ function add() {
 	  	var mprResult = .23;
 		break;
 	}
-	
+	var mprResult = 1;
 
     document.getElementById('result').innerHTML =.39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     return false;
