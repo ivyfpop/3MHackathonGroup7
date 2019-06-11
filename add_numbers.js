@@ -3,9 +3,10 @@
 function add() {
     var length = Number(document.getElementById('length').value);
     var width = Number(document.getElementById('width').value);
-
 	var mprResult = Number(document.getElementById('mpr').value);
+	var cfmResult = Number(document.getElementById('cfm').value);
 
+/*
 	var cfm = document.getElementById('cfm').value;
 	var cfmResult;
 	switch(cfm) {
@@ -25,7 +26,7 @@ function add() {
 	  	var cfmResult = 2.11;
 		break;
 	}
-
+*/
 	var result = cfmResult*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
     document.getElementById('result').innerHTML = result.toFixed(2);
     return false;
