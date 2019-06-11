@@ -31,7 +31,7 @@ function add() {
 	var mprResult = 1;
 
     //document.getElementById('result').innerHTML =.39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width))*mprResult;
-	document.getElementById('result').innerHTML =.39*0.818/(1-(length*2.125+(width-2.125)*2.125)/(length*width));
+    document.getElementById('result').innerHTML = length+width;
    return false;
 }
 
