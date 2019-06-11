@@ -39,6 +39,17 @@
             box-shadow: 0 5px #666;
             transform: translateY(4px);
           }
+
+          .bigbutton {
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: #4CAF50;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+          }
           </style>
 
     <div class="container">
@@ -57,13 +68,12 @@
           <input type="number" class="form-control" id="length" placeholder="0" required="">
         </div>
   
-        <div class="mb-3">
-          <label for="width">Width</label>
-          <input type="number" class="form-control" id="length" placeholder="0" required="">
-        </div>
-     
-        <button type="button">Calculate!
-        </button>
+      <div class="mb-3">
+        <label for="width">Width</label>
+        <input type="number" class="form-control" id="length" placeholder="0" required="">
+      </div>
+
+      <button type="button" class="bigbutton">Calculate!</button>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2019 3M</p>
