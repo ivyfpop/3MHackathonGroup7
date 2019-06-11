@@ -6,21 +6,109 @@
     <body>
         <p>Length: <input type="text" id="length"></input></p>
         <p>Width: <input type="text" id="width"></input></p>
-        <p>MPR: <input type="text" id="mpr"></input></p>
+        <p>
+            MPR: <select id="mpr">
+                    <option value="2800">2800</option>
+                    <option value="2400/2500">2400/2500</option>
+                    <option value="2200">2200</option>
+                    <option value="1900">1900</option>
+                    <option value="1500">1500</option>
+                    <option value="1200C">1200 Carbon</option>
+                    <option value="1200D">1200D</option>
+                    <option value="1200">1200</option>
+                    <option value="1085D">1085D</option>
+                    <option value="1085">1085</option>
+                    <option value="1000D">1000D</option>
+                    <option value="1000">1000</option>
+                    <option value="800C">800 CIRRUS</option>
+                    <option value="9800W">9800 Wire</option>
+                    <option value="600">600</option>
+                    <option value="500">500</option>
+                    <option value="300">300</option>
+                    <option value="100">100</option>
+                    <option value="FP">Flat Panel</option>
+                    <option value="CTF">Cut to fit</option>
+                </select>
+        </p>
         <input type="button" id="submit" onclick="calculate()" value="Submit"></input>
         <p id="display"></p>
         <p id="answer"></p>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script>
+
+            
+
             function calculate() {
                 var length = $('#length').val();
                 var width = $('#width').val();
                 var mpr = $('#mpr').val();
                 var unknown = 0.00;
-                if (mpr == '2800') {
-                    unknown = .25;
+
+                switch (mpr) {
+                    case '2800':
+                        unknown = .25;
+                        break;
+                    case '2400/2500':
+                        unknown = .23;
+                        break;
+                    case '2200':
+                        unknown = .20;
+                        break;
+                    case '1900':
+                        unknown = .18;
+                        break;
+                    case '1500':
+                        unknown = .21;
+                        break;
+                    case '1200C':
+                        unknown = .25;
+                        break;
+                    case '1200D':
+                        unknown = .23;
+                        break;
+                    case '1200':
+                        unknown = .19;
+                        break;
+                    case '1085D':
+                        unknown = .24;
+                        break;
+                    case '1085':
+                        unknown = .20;
+                        break;
+                    case '1000D':
+                        unknown = .24;
+                        break;
+                    case '1000':
+                        unknown = .22;
+                        break;
+                    case '800C':
+                        unknown = .22;
+                        break;
+                    case '800W':
+                        unknown = .21;
+                        break;
+                    case '600':
+                        unknown = .23;
+                        break;
+                    case '500':
+                        unknown = .18;
+                        break;
+                    case '300':
+                        unknown = .22;
+                        break;
+                    case '100':
+                        unknown = .22;
+                        break;
+                    case 'FP':
+                        unknown = .09;
+                        break;
+                    case 'CTF':
+                        unknown = .11;
+                        break;
                 }
+                //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
                 var calculation = 0.39 * 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * unknown;
+                calculation = Math.ceil(calculation * 100) / 100;
                 $('#display').text("Length: " + length + "\nWidth: " + width + "\nMPR: " + mpr + " Unknown: " + unknown);
                 $('#answer').text(calculation);
             }
