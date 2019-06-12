@@ -284,6 +284,7 @@
           valueColor('calcE', calcE);
       }
 
+	  // Calculates the pressure drop for the "Show All" menu option, the pressure drop for every single MPR at the current Length and Width.
       function calculateAll(length, width) {
         $('#mpr > option').each(function(i, element) {
             mpr = $(this).val();
@@ -334,101 +335,71 @@
           $('.cfmE').text(cfmE);
       }
 
-      function mprSwitch(mpr) {
-				var mprValue;
-				switch(mpr) {
-					case "2800":
-						mprValue = 0.25;
-						break;
-					case "2400/2500":
-						mprValue = 0.23;
-						break;
-					case "2200":
-						mprValue = 0.20;
-						break;						
-					case "1900":
-						mprValue = 0.18;
-						break;						
-					case "1500":
-						mprValue = 0.21;
-						break;						
-					case "1200 Carbon":
-						mprValue = 0.25;
-						break;						
-					case "1200D":
-						mprValue = 0.23;
-						break;
-					case "1200":
-						mprValue = 0.19;
-						break;							
-					case "1085D":
-						mprValue = 0.24;
-						break;						
-					case "1085":
-						mprValue = 0.20;
-						break;						
-					case "1000D":
-						mprValue = 0.24;
-						break;						
-					case "1000":
-						mprValue = 0.22;
-						break;						
-					case "800 CIRRUS":
-						mprValue = 0.22;
-						break;						
-					case "800 Wire":
-						mprValue = 0.21;
-						break;						
-					case "600":
-						mprValue = 0.23;
-						break;						
-					case "500":
-						mprValue = 0.18;
-						break;						
-					case "300":
-						mprValue = 0.22;
-						break;						
-					case "100":
-						mprValue = 0.22;
-						break;						
-					case "Flat Panel":
-						mprValue = 0.09;
-						break;						
-					case "Cut to Fit":
-						mprValue = 0.11;
-						break;										
-					case '1550 DP 6"':
-						mprValue = 0.12;
-						break;		
-					case '1550 DP 5"':
-						mprValue = 0.13;
-						break;		
-					case '1200 DP 5"':
-						mprValue = 0.12;
-						break;		
-					case '1550 DP 4"':
-						mprValue = 0.13;
-						break;		
-					case '1200 DP 4"':
-						mprValue = 0.12;
-						break;		
-					case '1000 DP 4"':
-						mprValue = 0.10;
-						break;		
-					case '1550 DP 3.75"':
-						mprValue = 0.13;
-						break;		
-					case '1200 DP 3.75"':
-						mprValue = 0.12;
-						break;		
-					case '1000 DP 3.75"':
-						mprValue = 0.10;
-						break;	
-				}
-        return mprValue;
-      }
+	// Simple wrapper for a switch for the MPR to get the value associated with it.
+	function mprSwitch(mpr) {
+		switch(mpr) {
+			case "2800":
+				return 0.25;
+			case "2400/2500":
+				return 0.23;
+			case "2200":
+				return 0.20;
+			case "1900":
+				return 0.18;
+			case "1500":
+				return 0.21;
+			case "1200 Carbon":
+				return 0.25;
+			case "1200D":
+				return 0.23;
+			case "1200":
+				return 0.19;
+			case "1085D":
+				return 0.24;
+			case "1085":
+				return 0.20;
+			case "1000D":
+				return 0.24;
+			case "1000":
+				return 0.22;
+			case "800 CIRRUS":
+				return 0.22;
+			case "800 Wire":
+				return 0.21;
+			case "600":
+				return 0.23;
+			case "500":
+				return 0.18;
+			case "300":
+				return 0.22;
+			case "100":
+				return 0.22;
+			case "Flat Panel":
+				return 0.09;
+			case "Cut to Fit":
+				return 0.11;
+			case '1550 DP 6"':
+				return 0.12;
+			case '1550 DP 5"':
+				return 0.13;
+			case '1200 DP 5"':
+				return 0.12;
+			case '1550 DP 4"':
+				return 0.13;
+			case '1200 DP 4"':
+				return 0.12;
+			case '1000 DP 4"':
+				return 0.10;
+			case '1550 DP 3.75"':
+				return 0.13;
+			case '1200 DP 3.75"':
+				return 0.12;
+			case '1000 DP 3.75"':
+				return 0.10;
+		}
+	}
 
-	  
+	// Exports the HTML table that has all MPRs to an excel file. 
 	function exportTableToExcel(){
 		var downloadLink;
 		var dataType = 'application/vnd.ms-excel';
