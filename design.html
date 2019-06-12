@@ -52,7 +52,26 @@
             transform: translateY(4px);
           }
 
-          
+          table, tr, th, td {
+            border-color: #333333;
+            font-size: 2rem;
+            padding: 5px;
+          }          
+          .video-container {
+          position:relative;
+          padding-bottom:56.25%;
+          padding-top:30px;
+          height:0;
+          overflow:hidden;
+          }
+
+        .video-container iframe, .video-container object, .video-container embed {
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
           </style>
     
     <div class="container">
@@ -121,13 +140,33 @@
 
       <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button>
 
-      <p id="display"></p>
       <div id="hide">
-          <p id="a"></p>
-          <p id="b"></p>
-          <p id="c"></p>
-          <p id="d"></p>
-          <p id="e"></p>
+          <table class="table mt-5">
+              <tr class="border-top">
+                <th class="border-top border-secondary">CFM</th>
+                <th class="border-top border-secondary">Value</th>
+              </tr>
+              <tr>
+                <td class="border-top border-secondary" id="cfmA"></td>
+                <td class="border-top border-secondary" id="calcA"></td>
+              </tr>
+              <tr>
+                <td class="border-top border-secondary" id="cfmB"></td>
+                <td class="border-top border-secondary" id="calcB"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="cfmC"></td>
+                  <td class="border-top border-secondary" id="calcC"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="cfmD"></td>
+                  <td class="border-top border-secondary" id="calcD"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="cfmE"></td>
+                  <td class="border-top border-secondary" id="calcE"></td>
+                </tr>
+          </table>
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -273,27 +312,31 @@
           //=ROUNDUP(2.11*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
           var calcE = 2.11 * valueFormula;
           calcE = Math.ceil(calcE * 100) / 100;
-          var cfmE = Math.round(1.5 * cfmFormula / 5) * 5;
+          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
 
-          $('#display').text("Length: " + length + "\nWidth: " + width + "\nMPR: " + mpr + " Unknown: " + unknown);
-          $('#a').text("CFM " + cfmA + ": " + calcA);
-          cfmColor('a', calcA);
-          $('#b').text("CFM " + cfmB + ": " + calcB);
-          cfmColor('b', calcB);
-          $('#c').text("CFM " + cfmC + ": " + calcC);
-          cfmColor('c', calcC);
-          $('#d').text("CFM " + cfmD + ": " + calcD);
-          cfmColor('d', calcD);
-          $('#e').text("CFM " + cfmE + ": " + calcE);
-          cfmColor('e', calcE);
+          $('#cfmA').text(cfmA);
+          $('#cfmB').text(cfmB);
+          $('#cfmC').text(cfmC);
+          $('#cfmD').text(cfmD);
+          $('#cfmE').text(cfmE);
+          $('#calcA').text(calcA);
+          $('#calcB').text(calcB);
+          $('#calcC').text(calcC);
+          $('#calcD').text(calcD);
+          $('#calcE').text(calcE);
+          cfmColor('calcA', calcA);
+          cfmColor('calcB', calcB);
+          cfmColor('calcC', calcC);
+          cfmColor('calcD', calcD);
+          cfmColor('calcE', calcE);
           $('#hide').show();
       }
 
       function cfmColor(cfm, val) {
           if (val < .26) {
-              $('#' + cfm).css('color', '#FF0000');
-          } else if (val > .40) {
               $('#' + cfm).css('color', '#00FF00');
+          } else if (val > .40) {
+              $('#' + cfm).css('color', '#FF0000');
           }
       }
     </script>
