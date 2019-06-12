@@ -171,9 +171,22 @@
           <table id="allTable" class="table mt-5">
             <tbody id="allBody">
               <tr>
-                <th>MPR</th>
-                <th></th>
+                <th class="border-top border-secondary"></th>
+                <th class="border-top border-secondary"></th>
+                <th class="border-top border-secondary"></th>
+                <th class="border-top border-secondary">CFM</th>
+                <th class="border-top border-secondary"></th>
+                <th class="border-top border-secondary"></th>
               </tr>
+              <tr>
+                <th class="border-top border-right border-secondary" id="mprheader">MPR</th>
+                <td class="border-top border-secondary cfmA"></td>
+                <td class="border-top border-secondary cfmB"></td>
+                <td class="border-top border-secondary cfmC"></td>
+                <td class="border-top border-secondary cfmD"></td>
+                <td class="border-top border-secondary cfmE"></td>
+              </tr>
+
             </tbody>
           </table>
       </div>
@@ -196,7 +209,7 @@
           $('#mpr > option').each(function(i, element) {
             mpr = $(this).val();
             if (mpr != 'all') {
-              $('#allBody tr:last').after('<tr><th >' + mpr + '</th></tr>');
+              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th></tr>');
             }
           });
 
