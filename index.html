@@ -91,17 +91,18 @@
 
       <div class="mb-3">
           <label for="length">Length</label>
-          <input type="number" min="0" class="form-control watched" id="length" placeholder="0" required="">
+          <input type="number" min="1" max="100" class="form-control watched" id="length" placeholder="16" required="">
       </div>
   
       <div class="mb-3">
         <label for="width">Width</label>
-        <input type="number" class="form-control watched" id="width" placeholder="0" required="">
+        <input type="number" min="1" max="100" class="form-control watched" id="width" placeholder="25" required="">
       </div>
 
       <div class="mb-3">
       <label for ="mpr">MPR</label><br>
       <select name="mpr" id="mpr" class="watched">
+	  	  	<option value="all" selected>Show All</option>
 			<option value=.25>2800</option>
 			<option value=.23>2400/2500</option>
 			<option value=.20>2200</option>
@@ -136,9 +137,9 @@
 
       <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
 
-      <div id="hide">
+      <div id="singleEntry">
           <table class="table mt-5">
-              <tr>
+              <tr class="border-top">
                 <th class="border-top border-secondary">CFM</th>
                 <th class="border-top border-secondary">Value</th>
               </tr>
@@ -165,12 +166,26 @@
           </table>
       </div>
 
-      <div class="allEntries">
-        <table class="table mt-5">
-          <tr>
-            <th></th>
-          </tr>
-        </table>
+
+      <div id="allEntry">
+          <table id="allTable" class="table mt-5">
+			<tr class="border-top">
+                <th class="border-top border-secondary">MPR</th>
+                <th class="border-top border-secondary" id="cfmA"></th>
+                <th class="border-top border-secondary" id="cfmB"></th>
+                <th class="border-top border-secondary" id="cfmC"></th>
+                <th class="border-top border-secondary" id="cfmD"></th>
+                <th class="border-top border-secondary" id="cfmE"></th>
+			</tr>
+			<tr>
+                <th class="border-top border-secondary">MPR</th>
+                <th class="border-top border-secondary" id="calcA"></th>
+                <th class="border-top border-secondary" id="calcB"></th>
+                <th class="border-top border-secondary" id="calcC"></th>
+                <th class="border-top border-secondary" id="calcD"></th>
+                <th class="border-top border-secondary" id="calcE"></th>              
+			</tr>
+          </table>
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -231,32 +246,27 @@
       });
 
       function calculate(length, width, mpr) {
-          var valueFormula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * mpr;
+          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
           var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
 
           //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
-          var calcA = 0.39 * valueFormula;
-          calcA = Math.ceil(calcA * 100) / 100;
+          var calcA = Math.ceil(0.39 * valueFormula * 100) / 100;
           var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(0.68*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9, 2)
-          var calcB = 0.68 * valueFormula;
-          calcB = Math.ceil(calcB * 100) / 100;
+          var calcB = Math.ceil(0.68 * valueFormula * 100) / 100;
           var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
 
           //=ROUND(0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcC = valueFormula;
-          calcC = Math.round(calcC * 100) / 100;
+          var calcC = Math.ceil(valueFormula * 100) / 100;
           var cfmC = cfmFormula;
 
           //=ROUNDUP(1.4*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcD = 1.4 * valueFormula;
-          calcD = Math.ceil(calcD * 100) / 100;
+          var calcD = Math.ceil(1.4 * valueFormula * 100) / 100;
           var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(2.11*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcE = 2.11 * valueFormula;
-          calcE = Math.ceil(calcE * 100) / 100;
+          var calcE = Math.ceil(2.11 * valueFormula * 100) / 100;
           var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
 
           $('#cfmA').text(cfmA);
