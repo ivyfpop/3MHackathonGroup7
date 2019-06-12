@@ -139,9 +139,16 @@
 
       <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
 
-      <div id="singleEntry">
-          <table class="table mt-5">
-              <tr class="border-top">
+      <div class="text-center" id="singleEntry">
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2"><h3>MPR:</h3><h1 class="font-weight-bold" id="mprdisplay"></h1></div>
+            <div class="col-2"><h3>Length:</h3><h1 class="font-weight-bold" id="lengthdisplay"></h1></div>
+            <div class="col-2"><h3>Width:</h3><h1 class="font-weight-bold" id="widthdisplay"></h1></div>
+            <div class="col-3"></div>
+          </div>
+          <table class="table mt-1">
+              <tr>
                 <th class="border-top border-secondary">CFM</th>
                 <th class="border-top border-secondary">Pressure Drop</th>
               </tr>
@@ -282,6 +289,10 @@
 		  var calcE = valueCalculate(2.11, length, width, mpr);
           $('#calcE').text(calcE);
           valueColor('calcE', calcE);
+
+        $('#mprdisplay').text($('#mpr').val());
+        $('#lengthdisplay').text($('#length').val());
+        $('#widthdisplay').text($('#width').val());
       }
 
       function calculateAll(length, width) {
