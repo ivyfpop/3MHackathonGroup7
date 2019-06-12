@@ -180,62 +180,6 @@
                   <td class="border-top border-secondary cfmD"></td>
                   <td class="border-top border-secondary cfmE"></td>
               </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc1A"></td>
-                  <td class="border-top border-secondary" id="calc1B"></td>
-                  <td class="border-top border-secondary" id="calc1C"></td>
-                  <td class="border-top border-secondary" id="calc1D"></td>
-                  <td class="border-top border-secondary" id="calc1E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc2A"></td>
-                  <td class="border-top border-secondary" id="calc2B"></td>
-                  <td class="border-top border-secondary" id="calc2C"></td>
-                  <td class="border-top border-secondary" id="calc2D"></td>
-                  <td class="border-top border-secondary" id="calc2E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc3A"></td>
-                  <td class="border-top border-secondary" id="calc3B"></td>
-                  <td class="border-top border-secondary" id="calc3C"></td>
-                  <td class="border-top border-secondary" id="calc3D"></td>
-                  <td class="border-top border-secondary" id="calc3E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc4A"></td>
-                  <td class="border-top border-secondary" id="calc4B"></td>
-                  <td class="border-top border-secondary" id="calc4C"></td>
-                  <td class="border-top border-secondary" id="calc4D"></td>
-                  <td class="border-top border-secondary" id="calc4E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc5A"></td>
-                  <td class="border-top border-secondary" id="calc5B"></td>
-                  <td class="border-top border-secondary" id="calc5C"></td>
-                  <td class="border-top border-secondary" id="calc5D"></td>
-                  <td class="border-top border-secondary" id="calc5E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc6A"></td>
-                  <td class="border-top border-secondary" id="calc6B"></td>
-                  <td class="border-top border-secondary" id="calc6C"></td>
-                  <td class="border-top border-secondary" id="calc6D"></td>
-                  <td class="border-top border-secondary" id="calc6E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc7A"></td>
-                  <td class="border-top border-secondary" id="calc7B"></td>
-                  <td class="border-top border-secondary" id="calc7C"></td>
-                  <td class="border-top border-secondary" id="calc7D"></td>
-                  <td class="border-top border-secondary" id="calc7E"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary" id="calc8A"></td>
-                  <td class="border-top border-secondary" id="calc8B"></td>
-                  <td class="border-top border-secondary" id="calc8C"></td>
-                  <td class="border-top border-secondary" id="calc8D"></td>
-                  <td class="border-top border-secondary" id="calc8E"></td>
-              </tr>
           </table>
       </div>
 
@@ -248,6 +192,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./assets/jquery-3.4.1.slim.min.js"></script>
     <script>
+	
+	  // Setup the website by defaulting to show all of the pressure drop values for every MPR Rating.
       $(document).ready(function() {
           $('#singleEntry').hide();
           var length = $('#length').val();
@@ -256,62 +202,154 @@
           $('#allEntry').show();
       });
 
+      // If a field in the form has been changed, update the website to show the changes.
       $('.watched').change(function() {
           var length = $('#length').val();
           var width = $('#width').val();
-          $('#hide').hide();
+		  
+		  // Only update the table on valid length and width values
           if (length.length > 0 && width.length > 0) {
-
             cfmUpdate(length, width);
 
             var mpr = $('#mpr').val();
-              if (mpr == 'all') {
-                calculateAll(length, width);
-                $('#singleEntry').hide();
-                $('#allEntry').show();
-              } else {
-                singleValue(length, width, mpr);
-                $('#allEntry').hide();
-                $('#singleEntry').show();
-              }
+			// If all of the Pressure Drop values for each MPR needs to be displayed.
+			if (mpr == 'all') {
+				calculateAll(length, width);
+				$('#singleEntry').hide();
+				$('#allEntry').show();
+			// A single Pressure Drop value needs to be displayed.
+			} else {
+				// get the correct mprValue
+				var mprValue;
+				switch(mpr)
+				{
+					case "2800":
+						mprValue = 0.25;
+						break;
+					case "2400/2500":
+						mprValue = 0.23;
+						break;
+					case "2200":
+						mprValue = 0.20;
+						break;						
+					case "1900":
+						mprValue = 0.18;
+						break;						
+					case "1500":
+						mprValue = 0.21;
+						break;						
+					case "1200 Carbon":
+						mprValue = 0.25;
+						break;						
+					case "1200D":
+						mprValue = 0.23;
+						break;
+					case "1200":
+						mprValue = 0.19;
+						break;							
+					case "1085D":
+						mprValue = 0.24;
+						break;						
+					case "1085":
+						mprValue = 0.20;
+						break;						
+					case "1000D":
+						mprValue = 0.24;
+						break;						
+					case "1000":
+						mprValue = 0.22;
+						break;						
+					case "800 CIRRUS":
+						mprValue = 0.22;
+						break;						
+					case "800 Wire":
+						mprValue = 0.21;
+						break;						
+					case "600":
+						mprValue = 0.23;
+						break;						
+					case "500":
+						mprValue = 0.18;
+						break;						
+					case "300":
+						mprValue = 0.22;
+						break;						
+					case "100":
+						mprValue = 0.22;
+						break;						
+					case "Flat Panel":
+						mprValue = 0.09;
+						break;						
+					case "Cut to fit":
+						mprValue = 0.11;
+						break;										
+					case '1550 DP 6"':
+						mprValue = 0.12;
+						break;		
+					case '1550 DP 5"':
+						mprValue = 0.13;
+						break;		
+					case '1200 DP 5"':
+						mprValue = 0.12;
+						break;		
+					case '1550 DP 4"':
+						mprValue = 0.13;
+						break;		
+					case '1200 DP 4"':
+						mprValue = 0.12;
+						break;		
+					case '1000 DP 4"':
+						mprValue = 0.10;
+						break;		
+					case '1550 DP 3.75"':
+						mprValue = 0.13;
+						break;		
+					case '1200 DP 3.75"':
+						mprValue = 0.12;
+						break;		
+					case '1000 DP 3.75"':
+						mprValue = 0.10;
+						break;	
+				}					  
+				singleValue(length, width, mprValue);
+				$('#allEntry').hide();
+				$('#singleEntry').show();
+			}
           }
       });
 
+	  // Calcultes a Pressure Drop Value given the length/width and mpr
 	  function valueCalculate(valueConstant, length, width, mpr) {
           var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
 		  return Math.ceil(valueConstant * valueFormula *100) / 100;
 	  }
 		
-
-      function singleValue(length, width, mpr) {
-          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
-          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
-
+	// Calculates and updates each of the values for each CFM for the given length/width/mpr
+	function singleValue(length, width, mpr) {
+		  // First Value
 		  var calcA = valueCalculate(0.39, length, width, mpr);
-          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
-
+		  $('#calcA').text(calcA);
+          valueColor('calcA', calcA);
+		  
+		  // Second Value
 		  var calcB = valueCalculate(0.68, length, width, mpr);
-          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
+		  $('#calcB').text(calcB);
+          valueColor('calcB', calcB);
 
+		  // Third Value
 		  var calcC = valueCalculate(1, length, width, mpr);
-          var cfmC = cfmFormula;
+		  $('#calcC').text(calcC);
+          valueColor('calcC', calcC);
 
+		  // Fourth Value
 		  var calcD = valueCalculate(1.4, length, width, mpr);
-          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
+		  $('#calcD').text(calcD);
+          valueColor('calcD', calcD);
 
+		  // Fifth Value
 		  var calcE = valueCalculate(2.11, length, width, mpr);
-          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
-
-          $('#calcA').text(calcA);
-          $('#calcB').text(calcB);
-          $('#calcC').text(calcC);
-          $('#calcD').text(calcD);
           $('#calcE').text(calcE);
-          cfmColor('calcA', calcA);
-          cfmColor('calcB', calcB);
-          cfmColor('calcC', calcC);
-          cfmColor('calcD', calcD);
-          cfmColor('calcE', calcE);
+          valueColor('calcE', calcE);
       }
 
       function calculateAll(length, width, mpr) {
@@ -320,7 +358,8 @@
           });
       }
 
-      function cfmColor(cfm, val) {
+	  // Colors the value in the table
+      function valueColor(cfm, val) {
           if (val < .26) {
               $('#' + cfm).css('color', '#00FF00');
           } else if (val > .40) {
