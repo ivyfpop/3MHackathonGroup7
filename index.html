@@ -134,6 +134,8 @@
 			<option value="1000 DP 3.75&quot;">1000 DP 3.75"</option>
       </select>
       </div>
+	
+
 
       <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
 
@@ -141,7 +143,7 @@
           <table class="table mt-5">
               <tr class="border-top">
                 <th class="border-top border-secondary">CFM</th>
-                <th class="border-top border-secondary">Value</th>
+                <th class="border-top border-secondary">Pressure Drop</th>
               </tr>
               <tr>
                 <td class="border-top border-secondary cfmA"></td>
@@ -168,6 +170,9 @@
 
 	
       <div id="allEntry">
+	  
+		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="exportTableToExcel()">Export Pressure Data To Excel File</button>
+		
           <table id="allTable" class="table mt-5">
             <tbody id="allBody">
               <tr>
@@ -422,5 +427,38 @@
 				}
         return mprValue;
       }
+
+	  
+	function exportTableToExcel(){
+		var downloadLink;
+		var dataType = 'application/vnd.ms-excel';
+		var tableSelect = document.getElementById("allTable");
+		var tableHTML = tableSelect.outerHTML;
+		
+		// Specify file name
+		filename = "export.xls";
+		
+		// Create download link element
+		downloadLink = document.createElement("a");
+		
+		document.body.appendChild(downloadLink);
+		
+		if(navigator.msSaveOrOpenBlob){
+			var blob = new Blob(['\ufeff', tableHTML], {
+				type: dataType
+			});
+			navigator.msSaveOrOpenBlob( blob, filename);
+		}else{
+			// Create a link to the file
+			downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+		
+			// Setting the file name
+			downloadLink.download = filename;
+			
+			//triggering the function
+			downloadLink.click();
+		}
+	}	  
+	  
     </script>
 </body></html>
