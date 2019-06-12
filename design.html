@@ -138,7 +138,7 @@
 
       <div id="hide">
           <table class="table mt-5">
-              <tr class="border-top">
+              <tr>
                 <th class="border-top border-secondary">CFM</th>
                 <th class="border-top border-secondary">Value</th>
               </tr>
@@ -163,6 +163,14 @@
                   <td class="border-top border-secondary" id="calcE"></td>
                 </tr>
           </table>
+      </div>
+
+      <div class="allEntries">
+        <table class="table mt-5">
+          <tr>
+            <th></th>
+          </tr>
+        </table>
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -209,16 +217,20 @@
           var width = $('#width').val();
           $('#hide').hide();
           if (length.length > 0 && width.length > 0) {
-              calculate(length, width);
-              $('#hide').show();
+            var mpr = $('#mpr').val();
+              if (mpr == 'all') {
+                calculateAll(length, width, mpr);
+                $('#singleEntry').hide();
+                $('#allEntry').show();
+              } else {
+                calculate(length, width, mpr);
+                $('#allEntry').hide();
+                $('#singleEntry').show();
+              }
           }
       });
 
-      function calculate(length, width) {
-          var length = $('#length').val();
-          var width = $('#width').val();
-          var mpr = $('#mpr').val();
-		  
+      function calculate(length, width, mpr) {
           var valueFormula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * mpr;
           var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
 
@@ -262,7 +274,12 @@
           cfmColor('calcC', calcC);
           cfmColor('calcD', calcD);
           cfmColor('calcE', calcE);
-          $('#hide').show();
+      }
+
+      function calculateAll(length, width, mpr) {
+          $('#mpr').each(function(i) {
+            
+          });
       }
 
       function cfmColor(cfm, val) {
