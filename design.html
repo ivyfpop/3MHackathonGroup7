@@ -35,43 +35,30 @@
             transform: translateY(4px);
           }
 
-          .bigbutton {
-            display: block;
-            width: 100%;
-            border: 10px;
-            background-color: #ECD84A;
-            padding: 14px 28px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-          }
-
-          .bigbutton:active {
-            background-color: rgb(157, 158, 64);
-            box-shadow: 0 3px rgb(104, 96, 26);
-            transform: translateY(4px);
-          }
-
           table, tr, th, td {
             border-color: #333333;
             font-size: 2rem;
             padding: 5px;
           }          
           .video-container {
-          position:relative;
-          padding-bottom:56.25%;
-          padding-top:30px;
-          height:0;
-          overflow:hidden;
+            position:relative;
+            padding-bottom:56.25%;
+            padding-top:30px;
+            height:0;
+            overflow:hidden;
           }
 
-        .video-container iframe, .video-container object, .video-container embed {
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:100%;
-        }
+          .video-container iframe, .video-container object, .video-container embed {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+          }
+
+          .title {
+            font-size: 3rem;
+          }
           </style>
     
     <div class="container">
@@ -98,23 +85,23 @@
       <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7TRqcjMO4mtKxoCsAGso9ojHV9lFjoHz" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </p>
 
-      <h2 class="text-center">
+      <h2 class="text-center title">
       Pressure Drop Calculator</h2>
       
 
       <div class="mb-3">
           <label for="length">Length</label>
-          <input type="number" min="0" class="form-control" id="length" placeholder="0" required="">
+          <input type="number" min="0" class="form-control watched" id="length" placeholder="0" required="">
       </div>
   
       <div class="mb-3">
         <label for="width">Width</label>
-        <input type="number" class="form-control" id="width" placeholder="0" required="">
+        <input type="number" class="form-control watched" id="width" placeholder="0" required="">
       </div>
 
       <div class="mb-3">
       <label for ="mpr">MPR</label>
-      <select name="mpr" id="mpr">
+      <select name="mpr" class="watched" id="mpr">
         <option value="2800">2800</option>
         <option value="2400/2500">2400/2500</option>
         <option value="2200">2200</option>
@@ -138,7 +125,7 @@
       </select>
       </div>
 
-      <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button>
+      <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
 
       <div id="hide">
           <table class="table mt-5">
