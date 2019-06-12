@@ -10,11 +10,9 @@
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 </head>
-
-  <body class="bg-light" background="./assets/images/Background.png">
-
-      <style>
-          .button {
+<body class="bg-light" background="./assets/images/Background.png">
+    <style>
+        .button {
             padding: 15px 25px;
             font-size: 24px;
             text-align: center;
@@ -25,426 +23,413 @@
             border: none;
             border-radius: 15px;
             box-shadow: 0 9px #999;
-          }
-          
-          .button:hover {background-color: #3e8e41}
-          
-          .button:active {
+        }
+        
+        .button:hover {
+            background-color: #3e8e41
+        }
+        
+        .button:active {
             background-color: #3e8e41;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
-          }
+        }
 
-          table, tr, th, td {
+        table, tr, th, td {
             border-color: #333333;
             font-size: 2rem;
             padding: 5px;
-          }          
-          .video-container {
+        }          
+        .video-container {
             position:relative;
             padding-bottom:56.25%;
             padding-top:30px;
             height:0;
             overflow:hidden;
-          }
+        }
 
-          .video-container iframe, .video-container object, .video-container embed {
+        .video-container iframe, .video-container object, .video-container embed {
             position:absolute;
             top:0;
             left:0;
             width:100%;
             height:100%;
-          }
+        }
 
-          .title {
+        .title {
             font-size: 3rem;
-          }
-          </style>
-    
-    <div class="container">
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./assets/images/CutOutLogo.png" alt="" width="650" height="200">
-      </div>
-      <div class="text-center">
-      <ul class="list-inline" >
-        <li class="list-inline-item">
-          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/?utm_medium=redirect&utm_source=vanity-url&utm_campaign=www.filtrete.com/">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Home</button>
-          </a></p></li>
-        <li class="list-inline-item">
-          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/lets-clear-the-air/"> 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">About Us</button>
-          </a></p></li>
-        <li class="list-inline-item">
-          <p><a href="https://www.filtrete.com/3M/en_US/filtrete/products/smart-filter-technology/"> 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Products</button>
-          </a></p></li>
-      </ul>
-      </div>
-      <p class="text-center" >
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7TRqcjMO4mtKxoCsAGso9ojHV9lFjoHz" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </p>
-
-      <h2 class="text-center title">
-      Pressure Drop Calculator</h2>
-      
-
-      <div class="mb-3">
-          <label for="length">Length</label>
-          <input type="number" min="1" max="100" class="form-control watched" id="length" value="16" required="">
-      </div>
+        }
+    </style>
   
-      <div class="mb-3">
-        <label for="width">Width</label>
-        <input type="number" min="1" max="100" class="form-control watched" id="width" value="25" required="">
-      </div>
+    <div class="container m-xs-0 m-md-auto">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="./assets/images/CutOutLogo.png" alt="" width="650" height="200">
+        </div>
+        <div class="text-center">
+            <ul class="list-inline" >
+                <li class="list-inline-item">
+                    <p><a href="https://www.filtrete.com/3M/en_US/filtrete/?utm_medium=redirect&utm_source=vanity-url&utm_campaign=www.filtrete.com/">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Home</button>
+                    </a></p>
+                </li>
+                <li class="list-inline-item">
+                    <p><a href="https://www.filtrete.com/3M/en_US/filtrete/lets-clear-the-air/"> 
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">About Us</button>
+                    </a></p></li>
+                <li class="list-inline-item">
+                    <p><a href="https://www.filtrete.com/3M/en_US/filtrete/products/smart-filter-technology/"> 
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Products</button>
+                    </a></p></li>
+            </ul>
+        </div>
+        <p class="text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7TRqcjMO4mtKxoCsAGso9ojHV9lFjoHz" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </p>
+        <h2 class="text-center title">Pressure Drop Calculator</h2>
 
-      <div class="mb-3">
-      <label for ="mpr">MPR</label><br>
-      <select name="mpr" id="mpr" class="watched">
-	  	  	<option value="all" selected="selected">Show All</option>
-			<option value="2800">2800</option>
-			<option value="2400/2500">2400/2500</option>
-			<option value="2200">2200</option>
-			<option value="1900">1900</option>
-			<option value="1500">1500</option>
-			<option value="1200 Carbon">1200 Carbon</option>
-			<option value="1200D">1200D</option>
-			<option value="1200">1200</option>
-			<option value="1085D">1085D</option>
-			<option value="1085">1085</option>
-			<option value="1000D">1000D</option>
-			<option value="1000">1000</option>
-			<option value="800 CIRRUS">800 CIRRUS</option>
-			<option value="800 Wire">800 Wire</option>
-			<option value="600">600</option>
-			<option value="500">500</option>
-			<option value="300">300</option>
-			<option value="100">100</option>
-			<option value="Flat Panel">Flat Panel</option>
-			<option value="Cut to Fit">Cut to Fit</option>			
-			<option value="1550 DP 6&quot;">1550 DP 6"</option>
-			<option value="1550 DP 5&quot;">1550 DP 5"</option>
-			<option value="1200 DP 4&quot;">1200 DP 5"</option>
-			<option value="1550 DP 4&quot;">1550 DP 4"</option>
-			<option value="1200 DP 4&quot;">1200 DP 4"</option>
-			<option value="1000 DP 4&quot;">1000 DP 4"</option>
-			<option value="1550 DP 3.75&quot;">1550 DP 3.75"</option>
-			<option value="1200 DP 3.75&quot;">1200 DP 3.75"</option>
-			<option value="1000 DP 3.75&quot;">1000 DP 3.75"</option>
-      </select>
-      </div>
-	
-
-
-      <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
-
-      <div class="text-center" id="singleEntry">
-          <div class="row mt-5">
-            <div class="col-4"><h3 class="font-weight-bold">MPR:</h3><h1 id="mprdisplay"></h1></div>
-            <div class="col-4"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
-            <div class="col-4"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
-          </div>
-          <table class="table mt-1">
-              <tr>
-                <th class="border-top border-secondary">CFM</th>
-                <th class="border-top border-secondary">Pressure Drop</th>
-              </tr>
-              <tr>
-                <td class="border-top border-secondary cfmA"></td>
-                <td class="border-top border-secondary" id="calcA"></td>
-              </tr>
-              <tr>
-                <td class="border-top border-secondary cfmB"></td>
-                <td class="border-top border-secondary" id="calcB"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary cfmC"></td>
-                  <td class="border-top border-secondary" id="calcC"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary cfmD"></td>
-                  <td class="border-top border-secondary" id="calcD"></td>
-              </tr>
-              <tr>
-                  <td class="border-top border-secondary cfmE"></td>
-                  <td class="border-top border-secondary" id="calcE"></td>
-                </tr>
-          </table>
-      </div>
-
-	
-      <div id="allEntry">
-	  
-		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="exportTableToExcel()">Export Pressure Data To Excel File</button>
+        <div class="mb-3">
+            <label for="length">Length</label>
+            <input type="number" min="1" max="100" class="form-control watched" id="length" value="16" required="">
+        </div>
     
-    <div class="row mt-5 text-center">
-        <div class="col-6"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
-        <div class="col-6"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
-      </div>
-          <table id="allTable" class="table mt-1">
-            <tbody id="allBody">
-              <tr>
-                <th class="border-top border-secondary"></th>
-                <th class="border-top border-secondary"></th>
-                <th class="border-top border-secondary"></th>
-                <th class="border-top border-secondary">CFM</th>
-                <th class="border-top border-secondary"></th>
-                <th class="border-top border-secondary"></th>
-              </tr>
-              <tr>
-                <th class="border-top border-right border-secondary" id="mprheader">MPR</th>
-                <th class="border-top border-secondary cfmA"></td>
-                <th class="border-top border-secondary cfmB"></td>
-                <th class="border-top border-secondary cfmC"></td>
-                <th class="border-top border-secondary cfmD"></td>
-                <th class="border-top border-secondary cfmE"></td>
-              </tr>
+        <div class="mb-3">
+            <label for="width">Width</label>
+            <input type="number" min="1" max="100" class="form-control watched" id="width" value="25" required="">
+        </div>
 
-            </tbody>
-          </table>
-      </div>
+        <div class="mb-3">
+            <label for ="mpr">MPR</label><br>
+            <select name="mpr" id="mpr" class="watched">
+                <option value="all" selected="selected">Show All</option>
+                <option value="2800">2800</option>
+                <option value="2400/2500">2400/2500</option>
+                <option value="2200">2200</option>
+                <option value="1900">1900</option>
+                <option value="1500">1500</option>
+                <option value="1200 Carbon">1200 Carbon</option>
+                <option value="1200D">1200D</option>
+                <option value="1200">1200</option>
+                <option value="1085D">1085D</option>
+                <option value="1085">1085</option>
+                <option value="1000D">1000D</option>
+                <option value="1000">1000</option>
+                <option value="800 CIRRUS">800 CIRRUS</option>
+                <option value="800 Wire">800 Wire</option>
+                <option value="600">600</option>
+                <option value="500">500</option>
+                <option value="300">300</option>
+                <option value="100">100</option>
+                <option value="Flat Panel">Flat Panel</option>
+                <option value="Cut to Fit">Cut to Fit</option>			
+                <option value="1550 DP 6&quot;">1550 DP 6"</option>
+                <option value="1550 DP 5&quot;">1550 DP 5"</option>
+                <option value="1200 DP 4&quot;">1200 DP 5"</option>
+                <option value="1550 DP 4&quot;">1550 DP 4"</option>
+                <option value="1200 DP 4&quot;">1200 DP 4"</option>
+                <option value="1000 DP 4&quot;">1000 DP 4"</option>
+                <option value="1550 DP 3.75&quot;">1550 DP 3.75"</option>
+                <option value="1200 DP 3.75&quot;">1200 DP 3.75"</option>
+                <option value="1000 DP 3.75&quot;">1000 DP 3.75"</option>
+            </select>
+        </div>
 
+        <div class="text-center" id="singleEntry">
+            <div class="row mt-5">
+                <div class="col-4"><h3 class="font-weight-bold">MPR:</h3><h1 id="mprdisplay"></h1></div>
+                <div class="col-4"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
+                <div class="col-4"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
+            </div>
+            <table class="table mt-1">
+                <tr>
+                    <th class="border-top border-secondary">CFM</th>
+                    <th class="border-top border-secondary">Pressure Drop</th>
+                </tr>
+                <tr>
+                    <td class="border-top border-secondary cfmA"></td>
+                    <td class="border-top border-secondary" id="calcA"></td>
+                </tr>
+                <tr>
+                    <td class="border-top border-secondary cfmB"></td>
+                    <td class="border-top border-secondary" id="calcB"></td>
+                </tr>
+                <tr>
+                    <td class="border-top border-secondary cfmC"></td>
+                    <td class="border-top border-secondary" id="calcC"></td>
+                </tr>
+                <tr>
+                    <td class="border-top border-secondary cfmD"></td>
+                    <td class="border-top border-secondary" id="calcD"></td>
+                </tr>
+                <tr>
+                    <td class="border-top border-secondary cfmE"></td>
+                    <td class="border-top border-secondary" id="calcE"></td>
+                  </tr>
+            </table>
+        </div>
+    
+        <div id="allEntry">	  
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="exportTableToExcel()">Export Pressure Data To Excel File</button>
+            <div class="row mt-5 text-center">
+                <div class="col-6"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
+                <div class="col-6"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
+            </div>
+            <table id="allTable" class="table mt-1">
+                <tbody id="allBody">
+                    <tr>
+                        <th class="border-top border-secondary"></th>
+                        <th class="border-top border-secondary"></th>
+                        <th class="border-top border-secondary"></th>
+                        <th class="border-top border-secondary">CFM</th>
+                        <th class="border-top border-secondary"></th>
+                        <th class="border-top border-secondary"></th>
+                    </tr>
+                    <tr>
+                        <th class="border-top border-right border-secondary" id="mprheader">MPR</th>
+                        <th class="border-top border-secondary cfmA"></td>
+                        <th class="border-top border-secondary cfmB"></td>
+                        <th class="border-top border-secondary cfmC"></td>
+                        <th class="border-top border-secondary cfmD"></td>
+                        <th class="border-top border-secondary cfmE"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2019 <img src="./assets/images/3M.png" alt="logo" width="33" height="30"></p>
-      </footer>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2019 <img src="./assets/images/3M.png" alt="logo" width="33" height="30"></p>
+        </footer>
     </div>
 	
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./assets/jquery-3.4.1.slim.min.js"></script>
     <script>
-	
-	  // Setup the website by defaulting to show all of the pressure drop values for every MPR Rating.
-      $(document).ready(function() {
-          $('#singleEntry').hide();
-          var length = $('#length').val();
-          var width = $('#width').val();
-          cfmUpdate(length, width);
-
-          $('#mpr > option').each(function(i, element) {
-            mpr = $(this).val();
-            if (mpr != 'all') {
-              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th><td class="border-top border-secondary" id="calc' + i + 'A"></td><td class="border-top border-secondary" id="calc' + i + 'B"></td><td class="border-top border-secondary" id="calc' + i + 'C"></td><td class="border-top border-secondary" id="calc' + i + 'D"></td><td class="border-top border-secondary" id="calc' + i + 'E"></td></tr>');
-            }
-          });
-          calculateAll(length, width);
-
-          $('#allEntry').show();
-      });
-
-      // If a field in the form has been changed, update the website to show the changes.
-      $('.watched').change(function() {
-          var length = $('#length').val();
-          var width = $('#width').val();
-		  
-		  // Only update the table on valid length and width values
-          if (length.length > 0 && width.length > 0) {
+        // Setup the website by defaulting to show all of the pressure drop values for every MPR Rating.
+        $(document).ready(function() {
+            $('#singleEntry').hide();
+            var length = $('#length').val();
+            var width = $('#width').val();
             cfmUpdate(length, width);
 
-            var mpr = $('#mpr').val();
-			// If all of the Pressure Drop values for each MPR needs to be displayed.
-			if (mpr == 'all') {
-				calculateAll(length, width);
-				$('#singleEntry').hide();
-				$('#allEntry').show();
-			// A single Pressure Drop value needs to be displayed.
-			} else {
-				// get the correct mprValue
-				var mprValue = mprSwitch(mpr);
-				singleValue(length, width, mprValue);
-				$('#allEntry').hide();
-				$('#singleEntry').show();
-			}
-          }
-      });
+            $('#mpr > option').each(function(i, element) {
+                mpr = $(this).val();
+                if (mpr != 'all') {
+                    $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th><td class="border-top border-secondary" id="calc' + i + 'A"></td><td class="border-top border-secondary" id="calc' + i + 'B"></td><td class="border-top border-secondary" id="calc' + i + 'C"></td><td class="border-top border-secondary" id="calc' + i + 'D"></td><td class="border-top border-secondary" id="calc' + i + 'E"></td></tr>');
+                }
+            });
+            calculateAll(length, width);
+            $('#allEntry').show();
+        });
 
-	  // Calcultes a Pressure Drop Value given the length/width and mpr
-	  function valueCalculate(valueConstant, length, width, mpr) {
-          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
-		  return Math.ceil(valueConstant * valueFormula *100) / 100;
-	  }
-		
-	// Calculates and updates each of the values for each CFM for the given length/width/mpr
-	function singleValue(length, width, mpr) {
-		  // First Value
-		  var calcA = valueCalculate(0.39, length, width, mpr);
-		  $('#calcA').text(calcA);
-          valueColor('calcA', calcA);
-		  
-		  // Second Value
-		  var calcB = valueCalculate(0.68, length, width, mpr);
-		  $('#calcB').text(calcB);
-          valueColor('calcB', calcB);
-
-		  // Third Value
-		  var calcC = valueCalculate(1, length, width, mpr);
-		  $('#calcC').text(calcC);
-          valueColor('calcC', calcC);
-
-		  // Fourth Value
-		  var calcD = valueCalculate(1.4, length, width, mpr);
-		  $('#calcD').text(calcD);
-          valueColor('calcD', calcD);
-
-		  // Fifth Value
-		  var calcE = valueCalculate(2.11, length, width, mpr);
-          $('#calcE').text(calcE);
-          valueColor('calcE', calcE);
-
-        $('#mprdisplay').text($('#mpr').val());
-        $('.lengthdisplay').text($('#length').val());
-        $('.widthdisplay').text($('#width').val());
-      }
-
-	  // Calculates the pressure drop for the "Show All" menu option, the pressure drop for every single MPR at the current Length and Width.
-      function calculateAll(length, width) {
-        $('#mpr > option').each(function(i, element) {
-            mpr = $(this).val();
-            if (mpr != 'all') {
-              var mprValue = mprSwitch(mpr)
-              var calcA = valueCalculate(0.39, length, width, mprValue);
-              var calcB = valueCalculate(0.68, length, width, mprValue);
-              var calcC = valueCalculate(1, length, width, mprValue);
-              var calcD = valueCalculate(1.4, length, width, mprValue);
-              var calcE = valueCalculate(2.11, length, width, mprValue);
-              $('#calc' + i + 'A').text(calcA);
-              valueColor('calc' + i + 'A', calcA);
-              $('#calc' + i + 'B').text(calcB);
-              valueColor('calc' + i + 'B', calcB);
-              $('#calc' + i + 'C').text(calcC);
-              valueColor('calc' + i + 'C', calcC);
-              $('#calc' + i + 'D').text(calcD);
-              valueColor('calc' + i + 'D', calcD);
-              $('#calc' + i + 'E').text(calcE);
-              valueColor('calc' + i + 'E', calcE);
-              $('.lengthdisplay').text($('#length').val());
-              $('.widthdisplay').text($('#width').val());
+      // If a field in the form has been changed, update the website to show the changes.
+        $('.watched').change(function() {
+            var length = $('#length').val();
+            var width = $('#width').val(); 
+            // Only update the table on valid length and width values
+            if (length.length > 0 && width.length > 0) {
+                cfmUpdate(length, width);
+                var mpr = $('#mpr').val();
+                // If all of the Pressure Drop values for each MPR needs to be displayed.
+                if (mpr == 'all') {
+                    calculateAll(length, width);
+                    $('#singleEntry').hide();
+                    $('#allEntry').show();
+                // A single Pressure Drop value needs to be displayed.
+                } else {
+                    // get the correct mprValue
+                    var mprValue = mprSwitch(mpr);
+                    singleValue(length, width, mprValue);
+                    $('#allEntry').hide();
+                    $('#singleEntry').show();
+                }
             }
         });
-      }
 
-	  // Colors the value in the table
-      function valueColor(cfm, val) {
-	      // Pressure below .26 results in green numbers
-          if (val < .26) {
-              $('#' + cfm).css('color', '#00FF00');
-		  // Pressure above ..40 results in red numbers
-          } else if (val > .40) {
-              $('#' + cfm).css('color', '#FF0000');
+        // Calcultes a Pressure Drop Value given the length/width and mpr
+        function valueCalculate(valueConstant, length, width, mpr) {
+            var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
+            return Math.ceil(valueConstant * valueFormula *100) / 100;
+        }
+        
+        // Calculates and updates each of the values for each CFM for the given length/width/mpr
+        function singleValue(length, width, mpr) {
+            // First Value
+            var calcA = valueCalculate(0.39, length, width, mpr);
+            $('#calcA').text(calcA);
+            valueColor('calcA', calcA);
+            
+            // Second Value
+            var calcB = valueCalculate(0.68, length, width, mpr);
+            $('#calcB').text(calcB);
+            valueColor('calcB', calcB);
+
+            // Third Value
+            var calcC = valueCalculate(1, length, width, mpr);
+            $('#calcC').text(calcC);
+            valueColor('calcC', calcC);
+
+            // Fourth Value
+            var calcD = valueCalculate(1.4, length, width, mpr);
+            $('#calcD').text(calcD);
+            valueColor('calcD', calcD);
+
+            // Fifth Value
+            var calcE = valueCalculate(2.11, length, width, mpr);
+            $('#calcE').text(calcE);
+            valueColor('calcE', calcE);
+
+            $('#mprdisplay').text($('#mpr').val());
+            $('.lengthdisplay').text($('#length').val());
+            $('.widthdisplay').text($('#width').val());
+        }
+
+        // Calculates the pressure drop for the "Show All" menu option, the pressure drop for every single MPR at the current Length and Width.
+        function calculateAll(length, width) {
+            $('#mpr > option').each(function(i, element) {
+                mpr = $(this).val();
+                if (mpr != 'all') {
+                  var mprValue = mprSwitch(mpr)
+                  var calcA = valueCalculate(0.39, length, width, mprValue);
+                  var calcB = valueCalculate(0.68, length, width, mprValue);
+                  var calcC = valueCalculate(1, length, width, mprValue);
+                  var calcD = valueCalculate(1.4, length, width, mprValue);
+                  var calcE = valueCalculate(2.11, length, width, mprValue);
+                  $('#calc' + i + 'A').text(calcA);
+                  valueColor('calc' + i + 'A', calcA);
+                  $('#calc' + i + 'B').text(calcB);
+                  valueColor('calc' + i + 'B', calcB);
+                  $('#calc' + i + 'C').text(calcC);
+                  valueColor('calc' + i + 'C', calcC);
+                  $('#calc' + i + 'D').text(calcD);
+                  valueColor('calc' + i + 'D', calcD);
+                  $('#calc' + i + 'E').text(calcE);
+                  valueColor('calc' + i + 'E', calcE);
+                  $('.lengthdisplay').text($('#length').val());
+                  $('.widthdisplay').text($('#width').val());
+                }
+            });
+        }
+
+        // Colors the value in the table
+        function valueColor(cfm, val) {
+            // Pressure below .26 results in green numbers
+            if (val < .26) {
+                $('#' + cfm).css('color', '#00FF00');
+            // Pressure above ..40 results in red numbers
+            } else if (val > .40) {
+                $('#' + cfm).css('color', '#FF0000');
+            }
+        }
+
+        // Updates all of the CFM values for the given length and width.
+        function cfmUpdate(length, width) {
+            var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
+            var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
+            var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
+            var cfmC = cfmFormula;
+            var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
+            var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
+            $('.cfmA').text(cfmA);
+            $('.cfmB').text(cfmB);
+            $('.cfmC').text(cfmC);
+            $('.cfmD').text(cfmD);
+            $('.cfmE').text(cfmE);
+        }
+
+        // Simple wrapper for a switch for the MPR to get the value associated with it.
+        function mprSwitch(mpr) {
+            switch(mpr) {
+                case "2800":
+                    return 0.25;
+                case "2400/2500":
+                    return 0.23;
+                case "2200":
+                    return 0.20;
+                case "1900":
+                    return 0.18;
+                case "1500":
+                    return 0.21;
+                case "1200 Carbon":
+                    return 0.25;
+                case "1200D":
+                    return 0.23;
+                case "1200":
+                    return 0.19;
+                case "1085D":
+                    return 0.24;
+                case "1085":
+                    return 0.20;
+                case "1000D":
+                    return 0.24;
+                case "1000":
+                    return 0.22;
+                case "800 CIRRUS":
+                    return 0.22;
+                case "800 Wire":
+                    return 0.21;
+                case "600":
+                    return 0.23;
+                case "500":
+                    return 0.18;
+                case "300":
+                    return 0.22;
+                case "100":
+                    return 0.22;
+                case "Flat Panel":
+                    return 0.09;
+                case "Cut to Fit":
+                    return 0.11;
+                case '1550 DP 6"':
+                    return 0.12;
+                case '1550 DP 5"':
+                    return 0.13;
+                case '1200 DP 5"':
+                    return 0.12;
+                case '1550 DP 4"':
+                    return 0.13;
+                case '1200 DP 4"':
+                    return 0.12;
+                case '1000 DP 4"':
+                    return 0.10;
+                case '1550 DP 3.75"':
+                    return 0.13;
+                case '1200 DP 3.75"':
+                    return 0.12;
+                case '1000 DP 3.75"':
+                    return 0.10;
+            }
+        }
+
+        // Exports the HTML table that has all MPRs to an excel file. 
+        function exportTableToExcel(){
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById("allTable");
+            var tableHTML = tableSelect.outerHTML;
+            
+            // Specify file name
+            filename = "pressureDropTable.xls";
+            
+            // Create download link element
+            downloadLink = document.createElement("a");
+            
+            document.body.appendChild(downloadLink);
+            
+            if(navigator.msSaveOrOpenBlob){
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob( blob, filename);
+            }else{
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+              
+                // Setting the file name
+                downloadLink.download = filename;
+                
+                //triggering the function
+                downloadLink.click();
           }
-      }
-
-	  // Updates all of the CFM values for the given length and width.
-      function cfmUpdate(length, width) {
-          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
-          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
-          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
-          var cfmC = cfmFormula;
-          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
-          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
-          $('.cfmA').text(cfmA);
-          $('.cfmB').text(cfmB);
-          $('.cfmC').text(cfmC);
-          $('.cfmD').text(cfmD);
-          $('.cfmE').text(cfmE);
-      }
-
-	// Simple wrapper for a switch for the MPR to get the value associated with it.
-	function mprSwitch(mpr) {
-		switch(mpr) {
-			case "2800":
-				return 0.25;
-			case "2400/2500":
-				return 0.23;
-			case "2200":
-				return 0.20;
-			case "1900":
-				return 0.18;
-			case "1500":
-				return 0.21;
-			case "1200 Carbon":
-				return 0.25;
-			case "1200D":
-				return 0.23;
-			case "1200":
-				return 0.19;
-			case "1085D":
-				return 0.24;
-			case "1085":
-				return 0.20;
-			case "1000D":
-				return 0.24;
-			case "1000":
-				return 0.22;
-			case "800 CIRRUS":
-				return 0.22;
-			case "800 Wire":
-				return 0.21;
-			case "600":
-				return 0.23;
-			case "500":
-				return 0.18;
-			case "300":
-				return 0.22;
-			case "100":
-				return 0.22;
-			case "Flat Panel":
-				return 0.09;
-			case "Cut to Fit":
-				return 0.11;
-			case '1550 DP 6"':
-				return 0.12;
-			case '1550 DP 5"':
-				return 0.13;
-			case '1200 DP 5"':
-				return 0.12;
-			case '1550 DP 4"':
-				return 0.13;
-			case '1200 DP 4"':
-				return 0.12;
-			case '1000 DP 4"':
-				return 0.10;
-			case '1550 DP 3.75"':
-				return 0.13;
-			case '1200 DP 3.75"':
-				return 0.12;
-			case '1000 DP 3.75"':
-				return 0.10;
-		}
-	}
-
-	// Exports the HTML table that has all MPRs to an excel file. 
-	function exportTableToExcel(){
-		var downloadLink;
-		var dataType = 'application/vnd.ms-excel';
-		var tableSelect = document.getElementById("allTable");
-		var tableHTML = tableSelect.outerHTML;
-		
-		// Specify file name
-		filename = "pressureDropTable.xls";
-		
-		// Create download link element
-		downloadLink = document.createElement("a");
-		
-		document.body.appendChild(downloadLink);
-		
-		if(navigator.msSaveOrOpenBlob){
-			var blob = new Blob(['\ufeff', tableHTML], {
-				type: dataType
-			});
-			navigator.msSaveOrOpenBlob( blob, filename);
-		}else{
-			// Create a link to the file
-			downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-		
-			// Setting the file name
-			downloadLink.download = filename;
-			
-			//triggering the function
-			downloadLink.click();
-		}
-	}	  
-	  
+        }	  
     </script>
-</body></html>
+</body>
+</html>
