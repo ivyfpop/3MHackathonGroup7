@@ -3,17 +3,12 @@
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <title>Filtrete™ Pressure Drop Calculator</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
-
+	
     <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="./index_files/form-validation.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
 </head>
 
   <body class="bg-light">
@@ -58,17 +53,30 @@
           }
 
           table, tr, th, td {
-            /* border: 1px solid black; */
-            border-color: #000000;
+            border-color: #333333;
             font-size: 2rem;
             padding: 5px;
           }          
+          .video-container {
+          position:relative;
+          padding-bottom:56.25%;
+          padding-top:30px;
+          height:0;
+          overflow:hidden;
+          }
+
+        .video-container iframe, .video-container object, .video-container embed {
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
           </style>
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://ivyfpop.github.io/3MHackathonGroup7/index_files/Images/CutOutLogo.png" alt="" width="450" height="150">
-        <h2>Pressure Drop Calculator</h2>
+        <img class="d-block mx-auto mb-4" src="index_files/Images/CutOutLogo.png" alt="" width="450" height="150">
       </div>
       <ul class="list-inline">
         <li class="list-inline-item">
@@ -85,10 +93,23 @@
           </a></p></li>
       </ul>
 
+      <div class="video-container">
+      <p align="center">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7TRqcjMO4mtKxoCsAGso9ojHV9lFjoHz" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </p>
+      </div>
+
+      <p>
+      <h2 align="center">
+      Pressure Drop Calculator</h2>
+      </p>
+
+      <p>
       <div class="mb-3">
           <label for="length">Length</label>
           <input type="number" min="0" class="form-control" id="length" placeholder="0" required="">
-        </div>
+      </div>
+      </p>
   
       <div class="mb-3">
         <label for="width">Width</label>
@@ -153,7 +174,7 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2019 3M</p>
+        <p class="mb-1">© 2019 <img src="3M.png" alt="icon" width="30" height="27"></p>
       </footer>
     </div>
 
