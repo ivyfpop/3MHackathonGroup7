@@ -180,11 +180,11 @@
               </tr>
               <tr>
                 <th class="border-top border-right border-secondary" id="mprheader">MPR</th>
-                <td class="border-top border-secondary cfmA"></td>
-                <td class="border-top border-secondary cfmB"></td>
-                <td class="border-top border-secondary cfmC"></td>
-                <td class="border-top border-secondary cfmD"></td>
-                <td class="border-top border-secondary cfmE"></td>
+                <th class="border-top border-secondary cfmA"></td>
+                <th class="border-top border-secondary cfmB"></td>
+                <th class="border-top border-secondary cfmC"></td>
+                <th class="border-top border-secondary cfmD"></td>
+                <th class="border-top border-secondary cfmE"></td>
               </tr>
 
             </tbody>
@@ -214,6 +214,7 @@
               $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th><td class="border-top border-secondary" id="calc' + i + 'A"></td><td class="border-top border-secondary" id="calc' + i + 'B"></td><td class="border-top border-secondary" id="calc' + i + 'C"></td><td class="border-top border-secondary" id="calc' + i + 'D"></td><td class="border-top border-secondary" id="calc' + i + 'E"></td></tr>');
             }
           });
+          calculateAll(length, width);
 
           $('#allEntry').show();
       });
@@ -236,9 +237,101 @@
 			// A single Pressure Drop value needs to be displayed.
 			} else {
 				// get the correct mprValue
+				var mprValue = mprSwitch(mpr);
+				singleValue(length, width, mprValue);
+				$('#allEntry').hide();
+				$('#singleEntry').show();
+			}
+          }
+      });
+
+	  // Calcultes a Pressure Drop Value given the length/width and mpr
+	  function valueCalculate(valueConstant, length, width, mpr) {
+          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
+		  return Math.ceil(valueConstant * valueFormula *100) / 100;
+	  }
+		
+	// Calculates and updates each of the values for each CFM for the given length/width/mpr
+	function singleValue(length, width, mpr) {
+		  // First Value
+		  var calcA = valueCalculate(0.39, length, width, mpr);
+		  $('#calcA').text(calcA);
+          valueColor('calcA', calcA);
+		  
+		  // Second Value
+		  var calcB = valueCalculate(0.68, length, width, mpr);
+		  $('#calcB').text(calcB);
+          valueColor('calcB', calcB);
+
+		  // Third Value
+		  var calcC = valueCalculate(1, length, width, mpr);
+		  $('#calcC').text(calcC);
+          valueColor('calcC', calcC);
+
+		  // Fourth Value
+		  var calcD = valueCalculate(1.4, length, width, mpr);
+		  $('#calcD').text(calcD);
+          valueColor('calcD', calcD);
+
+		  // Fifth Value
+		  var calcE = valueCalculate(2.11, length, width, mpr);
+          $('#calcE').text(calcE);
+          valueColor('calcE', calcE);
+      }
+
+      function calculateAll(length, width) {
+        $('#mpr > option').each(function(i, element) {
+            mpr = $(this).val();
+            if (mpr != 'all') {
+              var mprValue = mprSwitch(mpr)
+              var calcA = valueCalculate(0.39, length, width, mprValue);
+              var calcB = valueCalculate(0.68, length, width, mprValue);
+              var calcC = valueCalculate(1, length, width, mprValue);
+              var calcD = valueCalculate(1.4, length, width, mprValue);
+              var calcE = valueCalculate(2.11, length, width, mprValue);
+              $('#calc' + i + 'A').text(calcA);
+              valueColor('calc' + i + 'A', calcA);
+              $('#calc' + i + 'B').text(calcB);
+              valueColor('calc' + i + 'B', calcB);
+              $('#calc' + i + 'C').text(calcC);
+              valueColor('calc' + i + 'C', calcC);
+              $('#calc' + i + 'D').text(calcD);
+              valueColor('calc' + i + 'D', calcD);
+              $('#calc' + i + 'E').text(calcE);
+              valueColor('calc' + i + 'E', calcE);
+            }
+        });
+      }
+
+	  // Colors the value in the table
+      function valueColor(cfm, val) {
+	      // Pressure below .26 results in green numbers
+          if (val < .26) {
+              $('#' + cfm).css('color', '#00FF00');
+		  // Pressure above ..40 results in red numbers
+          } else if (val > .40) {
+              $('#' + cfm).css('color', '#FF0000');
+          }
+      }
+
+	  // Updates all of the CFM values for the given length and width.
+      function cfmUpdate(length, width) {
+          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
+          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
+          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
+          var cfmC = cfmFormula;
+          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
+          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
+          $('.cfmA').text(cfmA);
+          $('.cfmB').text(cfmB);
+          $('.cfmC').text(cfmC);
+          $('.cfmD').text(cfmD);
+          $('.cfmE').text(cfmE);
+      }
+
+      function mprSwitch(mpr) {
 				var mprValue;
-				switch(mpr)
-				{
+				switch(mpr) {
 					case "2800":
 						mprValue = 0.25;
 						break;
@@ -326,81 +419,8 @@
 					case '1000 DP 3.75"':
 						mprValue = 0.10;
 						break;	
-				}					  
-				singleValue(length, width, mprValue);
-				$('#allEntry').hide();
-				$('#singleEntry').show();
-			}
-          }
-      });
-
-	  // Calcultes a Pressure Drop Value given the length/width and mpr
-	  function valueCalculate(valueConstant, length, width, mpr) {
-          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
-		  return Math.ceil(valueConstant * valueFormula *100) / 100;
-	  }
-		
-	// Calculates and updates each of the values for each CFM for the given length/width/mpr
-	function singleValue(length, width, mpr) {
-		  // First Value
-		  var calcA = valueCalculate(0.39, length, width, mpr);
-		  $('#calcA').text(calcA);
-          valueColor('calcA', calcA);
-		  
-		  // Second Value
-		  var calcB = valueCalculate(0.68, length, width, mpr);
-		  $('#calcB').text(calcB);
-          valueColor('calcB', calcB);
-
-		  // Third Value
-		  var calcC = valueCalculate(1, length, width, mpr);
-		  $('#calcC').text(calcC);
-          valueColor('calcC', calcC);
-
-		  // Fourth Value
-		  var calcD = valueCalculate(1.4, length, width, mpr);
-		  $('#calcD').text(calcD);
-          valueColor('calcD', calcD);
-
-		  // Fifth Value
-		  var calcE = valueCalculate(2.11, length, width, mpr);
-          $('#calcE').text(calcE);
-          valueColor('calcE', calcE);
-      }
-
-      function calculateAll(length, width, mpr) {
-        $('#mpr > option').each(function(i, element) {
-            mpr = $(this).val();
-            if (mpr != 'all') {
-              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th></tr>');
-            }
-        });
-      }
-
-	  // Colors the value in the table
-      function valueColor(cfm, val) {
-	      // Pressure below .26 results in green numbers
-          if (val < .26) {
-              $('#' + cfm).css('color', '#00FF00');
-		  // Pressure above ..40 results in red numbers
-          } else if (val > .40) {
-              $('#' + cfm).css('color', '#FF0000');
-          }
-      }
-
-	  // Updates all of the CFM values for the given length and width.
-      function cfmUpdate(length, width) {
-          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
-          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
-          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
-          var cfmC = cfmFormula;
-          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
-          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
-          $('.cfmA').text(cfmA);
-          $('.cfmB').text(cfmB);
-          $('.cfmC').text(cfmC);
-          $('.cfmD').text(cfmD);
-          $('.cfmE').text(cfmE);
+				}
+        return mprValue;
       }
     </script>
 </body></html>
