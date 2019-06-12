@@ -216,7 +216,7 @@
           $('#mpr > option').each(function(i, element) {
             mpr = $(this).val();
             if (mpr != 'all') {
-              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th></tr>');
+              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th><td class="border-top border-secondary" id="calc' + i + 'A"></td><td class="border-top border-secondary" id="calc' + i + 'B"></td><td class="border-top border-secondary" id="calc' + i + 'C"></td><td class="border-top border-secondary" id="calc' + i + 'D"></td><td class="border-top border-secondary" id="calc' + i + 'E"></td></tr>');
             }
           });
 
@@ -374,9 +374,12 @@
       }
 
       function calculateAll(length, width, mpr) {
-          $('#mpr').each(function(i) {
-            
-          });
+        $('#mpr > option').each(function(i, element) {
+            mpr = $(this).val();
+            if (mpr != 'all') {
+              $('#allBody tr:last').after('<tr><th class="border-top border-right border-secondary">' + mpr + '</th></tr>');
+            }
+        });
       }
 
 	  // Colors the value in the table
