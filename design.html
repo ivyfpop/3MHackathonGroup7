@@ -104,37 +104,46 @@
 
       <div class="mb-3">
           <label for="length">Length</label>
-          <input type="number" min="0" class="form-control" id="length" placeholder="0" required="">
+          <input type="number" min="0" class="form-control" id="length" placeholder="0">
       </div>
   
       <div class="mb-3">
         <label for="width">Width</label>
-        <input type="number" class="form-control" id="width" placeholder="0" required="">
+        <input type="number" min="0" class="form-control" id="width" placeholder="0">
       </div>
 
       <div class="mb-3">
       <label for ="mpr">MPR</label>
       <select name="mpr" id="mpr">
-        <option value="2800">2800</option>
-        <option value="2400/2500">2400/2500</option>
-        <option value="2200">2200</option>
-        <option value="1900">1900</option>
-        <option value="1500">1500</option>
-        <option value="1200C">1200 Carbon</option>
-        <option value="1200D">1200D</option>
-        <option value="1200">1200</option>
-        <option value="1085D">1085D</option>
-        <option value="1085">1085</option>
-        <option value="1000D">1000D</option>
-        <option value="1000">1000</option>
-        <option value="800C">800 CIRRUS</option>
-        <option value="9800W">9800 Wire</option>
-        <option value="600">600</option>
-        <option value="500">500</option>
-        <option value="300">300</option>
-        <option value="100">100</option>
-        <option value="FP">Flat Panel</option>
-        <option value="CTF">Cut to fit</option>
+			<option value=.25>2800</option>
+			<option value=.23>2400/2500</option>
+			<option value=.20>2200</option>
+			<option value=.18>1900</option>
+			<option value=.21>1500</option>
+			<option value=.25>1200 Carbon</option>
+			<option value=.23>1200D</option>
+			<option value=.19>1200</option>
+			<option value=.24>1085D</option>
+			<option value=.20>1085</option>
+			<option value=.24>1000D</option>
+			<option value=.22>1000</option>
+			<option value=.22>800 CIRRUS</option>
+			<option value=.21>9800 Wire</option>
+			<option value=.23>600</option>
+			<option value=.18>500</option>
+			<option value=.22>300</option>
+			<option value=.22>100</option>
+			<option value=.09>Flat Panel</option>
+			<option value=.11>Cut to Fit</option>			
+			<option value=.12>1550 DP 6"</option>
+			<option value=.13>1550 DP 5"</option>
+			<option value=.12>1200 DP 4"</option>
+			<option value=.13>1550 DP 4"</option>
+			<option value=.12>1200 DP 4"</option>
+			<option value=.10>1000 DP 4"</option>
+			<option value=.13>1550 DP 3.75"</option>
+			<option value=.12>1200 DP 3.75"</option>
+			<option value=.10>1000 DP 3.75"</option>
       </select>
       </div>
 
@@ -222,71 +231,8 @@
           var length = $('#length').val();
           var width = $('#width').val();
           var mpr = $('#mpr').val();
-          var unknown = 0.00;
-
-          switch (mpr) {
-              case '2800':
-                  unknown = .25;
-                  break;
-              case '2400/2500':
-                  unknown = .23;
-                  break;
-              case '2200':
-                  unknown = .20;
-                  break;
-              case '1900':
-                  unknown = .18;
-                  break;
-              case '1500':
-                  unknown = .21;
-                  break;
-              case '1200C':
-                  unknown = .25;
-                  break;
-              case '1200D':
-                  unknown = .23;
-                  break;
-              case '1200':
-                  unknown = .19;
-                  break;
-              case '1085D':
-                  unknown = .24;
-                  break;
-              case '1085':
-                  unknown = .20;
-                  break;
-              case '1000D':
-                  unknown = .24;
-                  break;
-              case '1000':
-                  unknown = .22;
-                  break;
-              case '800C':
-                  unknown = .22;
-                  break;
-              case '800W':
-                  unknown = .21;
-                  break;
-              case '600':
-                  unknown = .23;
-                  break;
-              case '500':
-                  unknown = .18;
-                  break;
-              case '300':
-                  unknown = .22;
-                  break;
-              case '100':
-                  unknown = .22;
-                  break;
-              case 'FP':
-                  unknown = .09;
-                  break;
-              case 'CTF':
-                  unknown = .11;
-                  break;
-          }
-          var valueFormula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * unknown;
+		  
+          var valueFormula = 0.818 / (1 - (length * 1.0625 * 2 + (width - 2 * 1.0625) * 1.065 * 2) / (length * width)) * mpr;
           var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
 
           //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
