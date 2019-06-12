@@ -185,33 +185,10 @@
         <p class="mb-1">© 2019 <img src="./assets/images/3M.png" alt="logo" width="33" height="30"></p>
       </footer>
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+	
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./assets/jquery-3.4.1.slim.min.js"></script>
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-
       $(document).ready(function() {
           $('#singleEntry').hide();
           $('#allEntry').show();
@@ -224,39 +201,40 @@
           if (length.length > 0 && width.length > 0) {
             var mpr = $('#mpr').val();
               if (mpr == 'all') {
-                calculateAll(length, width, mpr);
+                calculateAll(length, width);
                 $('#singleEntry').hide();
                 $('#allEntry').show();
               } else {
-                calculate(length, width, mpr);
+                singleValue(length, width, mpr);
                 $('#allEntry').hide();
                 $('#singleEntry').show();
               }
           }
       });
 
-      function calculate(length, width, mpr) {
+	  function valueCalculate(valueConstant, length, width, mpr) {
           var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
-          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
+		  return Math.ceil(valueConstant * valueFormula *100) / 100;
+	  }
+		
 
-          //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
-          var calcA = Math.ceil(0.39 * valueFormula * 100) / 100;
+      function singleValue(length, width, mpr) {
+          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
+          var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
+
+		  var calcA = valueCalculate(0.39, length, width, mpr);
           var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
 
-          //=ROUNDUP(0.68*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9, 2)
-          var calcB = Math.ceil(0.68 * valueFormula * 100) / 100;
+		  var calcB = valueCalculate(0.68, length, width, mpr);
           var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
 
-          //=ROUND(0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcC = Math.ceil(valueFormula * 100) / 100;
+		  var calcC = valueCalculate(1, length, width, mpr);
           var cfmC = cfmFormula;
 
-          //=ROUNDUP(1.4*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcD = Math.ceil(1.4 * valueFormula * 100) / 100;
+		  var calcD = valueCalculate(1.4, length, width, mpr);
           var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
 
-          //=ROUNDUP(2.11*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
-          var calcE = Math.ceil(2.11 * valueFormula * 100) / 100;
+		  var calcE = valueCalculate(2.11, length, width, mpr);
           var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
 
           $('#cfmA').text(cfmA);
