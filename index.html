@@ -375,13 +375,16 @@
 
 	  // Colors the value in the table
       function valueColor(cfm, val) {
+	      // Pressure below .26 results in green numbers
           if (val < .26) {
               $('#' + cfm).css('color', '#00FF00');
+		  // Pressure above ..40 results in red numbers
           } else if (val > .40) {
               $('#' + cfm).css('color', '#FF0000');
           }
       }
 
+	  // Updates all of the CFM values for the given length and width.
       function cfmUpdate(length, width) {
           var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
           var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
