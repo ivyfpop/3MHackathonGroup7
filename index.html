@@ -139,9 +139,14 @@
 
       <!-- <button type="button" class="bigbutton" onclick="calculate()">Calculate!</button> -->
 
-      <div id="singleEntry">
-          <table class="table mt-5">
-              <tr class="border-top">
+      <div class="text-center" id="singleEntry">
+          <div class="row mt-5">
+            <div class="col-4"><h3 class="font-weight-bold">MPR:</h3><h1 id="mprdisplay"></h1></div>
+            <div class="col-4"><h3 class="font-weight-bold">Length:</h3><h1 id="lengthdisplay"></h1></div>
+            <div class="col-4"><h3 class="font-weight-bold">Width:</h3><h1 id="widthdisplay"></h1></div>
+          </div>
+          <table class="table mt-1">
+              <tr>
                 <th class="border-top border-secondary">CFM</th>
                 <th class="border-top border-secondary">Pressure Drop</th>
               </tr>
@@ -282,6 +287,10 @@
 		  var calcE = valueCalculate(2.11, length, width, mpr);
           $('#calcE').text(calcE);
           valueColor('calcE', calcE);
+
+        $('#mprdisplay').text($('#mpr').val());
+        $('#lengthdisplay').text($('#length').val());
+        $('#widthdisplay').text($('#width').val());
       }
 
 	  // Calculates the pressure drop for the "Show All" menu option, the pressure drop for every single MPR at the current Length and Width.
