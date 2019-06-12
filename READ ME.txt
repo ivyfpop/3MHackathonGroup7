@@ -1,7 +1,0 @@
-Basic Calculator in PHP and Bootstrap
-
-Simple program in PHP that will let the user to enter first and second number and will let the user to select what operator to use (add, subtract, divide, multiply), the program will then display the result.
-
------------------
-
-inettutor.com
