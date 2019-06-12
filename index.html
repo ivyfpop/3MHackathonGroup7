@@ -142,8 +142,8 @@
       <div class="text-center" id="singleEntry">
           <div class="row mt-5">
             <div class="col-4"><h3 class="font-weight-bold">MPR:</h3><h1 id="mprdisplay"></h1></div>
-            <div class="col-4"><h3 class="font-weight-bold">Length:</h3><h1 id="lengthdisplay"></h1></div>
-            <div class="col-4"><h3 class="font-weight-bold">Width:</h3><h1 id="widthdisplay"></h1></div>
+            <div class="col-4"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
+            <div class="col-4"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
           </div>
           <table class="table mt-1">
               <tr>
@@ -177,8 +177,12 @@
       <div id="allEntry">
 	  
 		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="exportTableToExcel()">Export Pressure Data To Excel File</button>
-		
-          <table id="allTable" class="table mt-5">
+    
+    <div class="row mt-5 text-center">
+        <div class="col-6"><h3 class="font-weight-bold">Length:</h3><h1 class="lengthdisplay"></h1></div>
+        <div class="col-6"><h3 class="font-weight-bold">Width:</h3><h1 class="widthdisplay"></h1></div>
+      </div>
+          <table id="allTable" class="table mt-1">
             <tbody id="allBody">
               <tr>
                 <th class="border-top border-secondary"></th>
@@ -289,8 +293,8 @@
           valueColor('calcE', calcE);
 
         $('#mprdisplay').text($('#mpr').val());
-        $('#lengthdisplay').text($('#length').val());
-        $('#widthdisplay').text($('#width').val());
+        $('.lengthdisplay').text($('#length').val());
+        $('.widthdisplay').text($('#width').val());
       }
 
       function calculateAll(length, width) {
@@ -313,6 +317,8 @@
               valueColor('calc' + i + 'D', calcD);
               $('#calc' + i + 'E').text(calcE);
               valueColor('calc' + i + 'E', calcE);
+              $('.lengthdisplay').text($('#length').val());
+              $('.widthdisplay').text($('#width').val());
             }
         });
       }
