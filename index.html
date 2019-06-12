@@ -144,23 +144,23 @@
                 <th class="border-top border-secondary">Value</th>
               </tr>
               <tr>
-                <td class="border-top border-secondary" id="cfmA"></td>
+                <td class="border-top border-secondary cfmA"></td>
                 <td class="border-top border-secondary" id="calcA"></td>
               </tr>
               <tr>
-                <td class="border-top border-secondary" id="cfmB"></td>
+                <td class="border-top border-secondary cfmB"></td>
                 <td class="border-top border-secondary" id="calcB"></td>
               </tr>
               <tr>
-                  <td class="border-top border-secondary" id="cfmC"></td>
+                  <td class="border-top border-secondary cfmC"></td>
                   <td class="border-top border-secondary" id="calcC"></td>
               </tr>
               <tr>
-                  <td class="border-top border-secondary" id="cfmD"></td>
+                  <td class="border-top border-secondary cfmD"></td>
                   <td class="border-top border-secondary" id="calcD"></td>
               </tr>
               <tr>
-                  <td class="border-top border-secondary" id="cfmE"></td>
+                  <td class="border-top border-secondary cfmE"></td>
                   <td class="border-top border-secondary" id="calcE"></td>
                 </tr>
           </table>
@@ -169,14 +169,73 @@
 	
       <div id="allEntry">
           <table id="allTable" class="table mt-5">
-			<tr class="border-top">
-                <th class="border-top border-secondary">MPR</th>
-                <th class="border-top border-secondary" id="cfmA"></th>
-                <th class="border-top border-secondary" id="cfmB"></th>
-                <th class="border-top border-secondary" id="cfmC"></th>
-                <th class="border-top border-secondary" id="cfmD"></th>
-                <th class="border-top border-secondary" id="cfmE"></th>
-			</tr>
+			        <tr>
+                <th>CFM</th>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary"></td>
+                  <td class="border-top border-secondary cfmA"></td>
+                  <td class="border-top border-secondary cfmB"></td>
+                  <td class="border-top border-secondary cfmC"></td>
+                  <td class="border-top border-secondary cfmD"></td>
+                  <td class="border-top border-secondary cfmE"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc1A"></td>
+                  <td class="border-top border-secondary" id="calc1B"></td>
+                  <td class="border-top border-secondary" id="calc1C"></td>
+                  <td class="border-top border-secondary" id="calc1D"></td>
+                  <td class="border-top border-secondary" id="calc1E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc2A"></td>
+                  <td class="border-top border-secondary" id="calc2B"></td>
+                  <td class="border-top border-secondary" id="calc2C"></td>
+                  <td class="border-top border-secondary" id="calc2D"></td>
+                  <td class="border-top border-secondary" id="calc2E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc3A"></td>
+                  <td class="border-top border-secondary" id="calc3B"></td>
+                  <td class="border-top border-secondary" id="calc3C"></td>
+                  <td class="border-top border-secondary" id="calc3D"></td>
+                  <td class="border-top border-secondary" id="calc3E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc4A"></td>
+                  <td class="border-top border-secondary" id="calc4B"></td>
+                  <td class="border-top border-secondary" id="calc4C"></td>
+                  <td class="border-top border-secondary" id="calc4D"></td>
+                  <td class="border-top border-secondary" id="calc4E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc5A"></td>
+                  <td class="border-top border-secondary" id="calc5B"></td>
+                  <td class="border-top border-secondary" id="calc5C"></td>
+                  <td class="border-top border-secondary" id="calc5D"></td>
+                  <td class="border-top border-secondary" id="calc5E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc6A"></td>
+                  <td class="border-top border-secondary" id="calc6B"></td>
+                  <td class="border-top border-secondary" id="calc6C"></td>
+                  <td class="border-top border-secondary" id="calc6D"></td>
+                  <td class="border-top border-secondary" id="calc6E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc7A"></td>
+                  <td class="border-top border-secondary" id="calc7B"></td>
+                  <td class="border-top border-secondary" id="calc7C"></td>
+                  <td class="border-top border-secondary" id="calc7D"></td>
+                  <td class="border-top border-secondary" id="calc7E"></td>
+              </tr>
+              <tr>
+                  <td class="border-top border-secondary" id="calc8A"></td>
+                  <td class="border-top border-secondary" id="calc8B"></td>
+                  <td class="border-top border-secondary" id="calc8C"></td>
+                  <td class="border-top border-secondary" id="calc8D"></td>
+                  <td class="border-top border-secondary" id="calc8E"></td>
+              </tr>
           </table>
       </div>
 
@@ -214,6 +273,9 @@
 
       $(document).ready(function() {
           $('#singleEntry').hide();
+          var length = $('#length').val();
+          var width = $('#width').val();
+          cfmUpdate(length, width);
           $('#allEntry').show();
       });
 
@@ -222,6 +284,9 @@
           var width = $('#width').val();
           $('#hide').hide();
           if (length.length > 0 && width.length > 0) {
+
+            cfmUpdate(length, width);
+
             var mpr = $('#mpr').val();
               if (mpr == 'all') {
                 calculateAll(length, width, mpr);
@@ -237,33 +302,22 @@
 
       function calculate(length, width, mpr) {
           var valueFormula = 0.818 / (1 - (length * 2.125 + (width - 2.125) * 2.125) / (length * width)) * mpr;
-          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
 
           //=ROUNDUP(0.39*0.818/(1-($A15*1.0625*2+($B15-2*1.0625)*1.065*2)/($A15*$B15))*$I14, 2)
           var calcA = Math.ceil(0.39 * valueFormula * 100) / 100;
-          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(0.68*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9, 2)
           var calcB = Math.ceil(0.68 * valueFormula * 100) / 100;
-          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
 
           //=ROUND(0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
           var calcC = Math.ceil(valueFormula * 100) / 100;
-          var cfmC = cfmFormula;
 
           //=ROUNDUP(1.4*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
           var calcD = Math.ceil(1.4 * valueFormula * 100) / 100;
-          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
 
           //=ROUNDUP(2.11*0.818/(1-($A9*1.0625*2+($B9-2*1.0625)*1.065*2)/($A9*$B9))*$I9,2)
           var calcE = Math.ceil(2.11 * valueFormula * 100) / 100;
-          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
 
-          $('#cfmA').text(cfmA);
-          $('#cfmB').text(cfmB);
-          $('#cfmC').text(cfmC);
-          $('#cfmD').text(cfmD);
-          $('#cfmE').text(cfmE);
           $('#calcA').text(calcA);
           $('#calcB').text(calcB);
           $('#calcC').text(calcC);
@@ -288,6 +342,20 @@
           } else if (val > .40) {
               $('#' + cfm).css('color', '#FF0000');
           }
+      }
+
+      function cfmUpdate(length, width) {
+          var cfmFormula = Math.round(Math.round(295 * length * width / 144) / 5) * 5;
+          var cfmA = Math.round(.5 * cfmFormula / 5) * 5;
+          var cfmB = Math.round(.75 * cfmFormula / 5) * 5;
+          var cfmC = cfmFormula;
+          var cfmD = Math.round(1.25 * cfmFormula / 5) * 5;
+          var cfmE = Math.round(Math.round(500 * length * width / 144) / 5) * 5;
+          $('.cfmA').text(cfmA);
+          $('.cfmB').text(cfmB);
+          $('.cfmC').text(cfmC);
+          $('.cfmD').text(cfmD);
+          $('.cfmE').text(cfmE);
       }
     </script>
 </body></html>
